@@ -14,6 +14,7 @@ import emoIcon from "../../assets/icons/ehb-companies/emo-dark.svg"
 import mlmWorld from "../../assets/images/online-world.gif"
 import serviceImage from "../../assets/images/award.png"
 import wrapperWall from "../../assets/wrapper/main-wall.png"
+import wrapperWallRes from "../../assets/wrapper/main-wall-res.png"
 
 
 const ehbDapartmentsData = [
@@ -98,7 +99,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-main-wrapper tex-w" >
       <div className="wrapper-wall">
-        <img src={wrapperWall} alt="" />
+        <img src={isMobile ? wrapperWallRes : wrapperWall} alt="" />
       </div>
       <div className="common-head-wrapper-title">
         <div style={{ display: 'flex', justifyContent: "space-between" }}>
@@ -140,7 +141,7 @@ const Dashboard = () => {
             <h2 className='fig-card-num'>60%</h2>
           </div>
         </Col>
-        <Col xs={12} sm={12} md={12} lg={6}>
+        <Col xs={24} sm={24} md={12} lg={6}>
           <div className="main-cards-hd dark-card">
             <div className='card-icon service-icon'>
               <img src={serviceIcon} width={15} height={15} alt="" />
@@ -152,7 +153,7 @@ const Dashboard = () => {
       </Row>
 
       <Row style={{ marginTop: "20px" }} gutter={[20, 20]}>
-        <Col sm={24} md={24} lg={12}>
+        <Col xs={24} sm={24} md={6} lg={12}>
           <div className="ehb-departments">
             <h4 className='tex-dull'>EHB Departments</h4>
             {
@@ -170,7 +171,7 @@ const Dashboard = () => {
             }
           </div>
         </Col>
-        <Col sm={6} md={6} lg={12}>
+        <Col xs={24} sm={24} md={6} lg={12}>
           <div className='Adver-affilate-program'>
             <div className="flex-wrp">
               <img src={mlmWorld} alt="" />
@@ -185,7 +186,7 @@ const Dashboard = () => {
       </Row>
 
       <Row style={{ marginTop: "20px" }} gutter={[20, 20]}>
-        <Col sm={24} md={24} lg={10}>
+        <Col xs={24} sm={24} md={24} lg={10}>
           <div className="upper-wrp-quick-links">
             <h4 className='tex-dull'>Quick Links <span style={{ fontSize: "12px", fontWeight: "500" }}>(You most visited)</span></h4>
             <div className="wrapper-quick-links scroll-s">
@@ -202,7 +203,7 @@ const Dashboard = () => {
             </div>
           </div>
         </Col>
-        <Col sm={24} md={24} lg={7}>
+        <Col xs={24} sm={24} md={24} lg={7}>
           <div className="upgrage-sq">
             <h4 className='tex-dull'>Refill Service Quality</h4>
             <div className="current-quality dark-card">
@@ -211,7 +212,7 @@ const Dashboard = () => {
             </div>
           </div>
         </Col>
-        <Col sm={24} md={24} lg={7}>
+        <Col xs={24} sm={24} md={24} lg={7}>
           <div className="upper-wrp-Join-after">
             <h4 className='tex-dull'>Recent Joins</h4>
             <div className="wrapper-Join-after scroll-s">

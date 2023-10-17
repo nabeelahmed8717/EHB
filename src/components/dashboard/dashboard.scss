@@ -111,9 +111,12 @@
       .flex-wrp {
          display: flex;
          gap: 20px;
-
+         @media (max-width: 768px) {
+           flex-direction: column;
+          }
          img {
             width: 50%;
+            margin: 0 auto;
          }
 
          .contents {
@@ -128,7 +131,11 @@
          }
 
       }
-
+      @media (max-width: 768px) {
+         button{
+            margin-top: 20px;
+         }
+        }
    }
 
    .upper-wrp-quick-links {

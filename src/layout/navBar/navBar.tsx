@@ -29,6 +29,7 @@ import manageUsersIcon from "../../assets/icons/user-gear.svg"
 
 import Switch from "../../assets/icons/fi-rr-refresh.svg"
 import notificationIcon from "../../assets/icons/notification.svg"
+import EHBIcon from "../../assets/icons/ehb-companies/ehb-main-dark.svg"
 
 import { CloseOutlined } from '@ant-design/icons';
 import UserProfileCard from './userProfileCard/userProfileCard';
@@ -183,11 +184,14 @@ const NavBar = () => {
             style={{ top: visible ? 0 : '-100px', }}
         >
             <div className="brand-logo">
+                <div style={{display:"flex", alignItems:"center", gap:"10px"}}>
+                {isMobile && <img src={EHBIcon} alt="" />}
                 <p style={{
                     backgroundColor: "rgb(39 174 96 / 26%)",
                     color: "#27ae60", padding: "6px 10px",
                     borderRadius: "8px"
                 }} ><strong>EHB Future</strong></p>
+                </div>
             </div>
             {isAuthenticated ?
                 <div className="nav-menu d-flex align-items-center">
