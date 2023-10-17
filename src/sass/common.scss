@@ -610,6 +610,21 @@ input {
   }
 }
 
+.scroll-s{
+
+&::-webkit-scrollbar-track {
+  background: #000000; 
+  border-radius: 20px;
+}
+&::-webkit-scrollbar-thumb {
+  background: #1653a2; 
+  border-radius: 20px;
+}
+&::-webkit-scrollbar-thumb:hover {
+  background: #2582FF; 
+  border-radius: 20px;
+}
+}
 
 .global-form {
   .ant-input {

@@ -1,5 +1,13 @@
 .dashboard-main-wrapper {
 
+   .wrapper-wall{
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      img{
+         width: 100%;
+      }
+   }
    .main-cards-hd {
       width: 100%;
       height: 150px;
@@ -14,69 +22,202 @@
          align-items: center;
          justify-content: center;
       }
-      .designation-icon{
+
+      .designation-icon {
          background-color: #e74c3c2b;
       }
-      .performance-icon{
+
+      .performance-icon {
          background-color: #8e44ad2e;
       }
-      .service-icon{
+
+      .service-icon {
          background-color: #27ae602e;
       }
-      .fig-card-head{
+
+      .fig-card-head {
          color: #ffffff70;
          font-weight: 600;
          margin-top: 10px;
          margin-bottom: 9px;
       }
-      .fig-card-num{
+
+      .fig-card-num {
          color: aliceblue;
       }
    }
 
    .account-bx {
       background-color: #d35400;
-      .fig-card-head{
+
+      .fig-card-head {
          color: #ffffff9a;
       }
+
       .account-icon {
          background-color: #ffffffd1 !important;
       }
    }
 
-   .ehb-departments{
+   .ehb-departments {
       background-color: #1319288a;
       width: 100%;
       border-radius: 15px;
       padding: 20px;
-     
-      .dept-cards-wrapper{
+
+      .dept-cards-wrapper {
          margin-top: 20px;
-         .cards{
+
+         .cards {
             padding: 10px 15px;
             border-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             @media (max-width: 768px) {
                flex-direction: column;
                gap: 10px;
                align-items: flex-start;
-             }
-            .crd-lef{
+            }
+
+            .crd-lef {
                display: flex;
                gap: 10px;
-               h4{
+
+               h4 {
                   font-size: 16px;
                   display: flex;
                   flex-direction: column;
-                  span{
+
+                  span {
                      font-size: 12px;
                      color: #ffffff9b;
                      font-weight: 500;
                   }
                }
             }
+         }
+      }
+   }
+
+   .Adver-affilate-program {
+      background-color: #1319288a;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      padding: 20px;
+
+      .flex-wrp {
+         display: flex;
+         gap: 20px;
+
+         img {
+            width: 50%;
+         }
+
+         .contents {
+            h3 {
+               font-size: 28px;
+            }
+
+            p {
+               color: #ffffffd1;
+               margin-top: 20px;
+            }
+         }
+
+      }
+
+   }
+
+   .upper-wrp-quick-links {
+      background-color: #1319288a;
+      width: 100%;
+      border-radius: 15px;
+      padding: 20px;
+   }
+
+   .wrapper-quick-links {
+      margin-top: 20px;
+      height: 214px;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+         width: 6px;
+         height: 0px;
+       }
+      
+
+      .box-quick-links {
+         padding: 10px 15px;
+         border-radius: 10px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-bottom: 10px;
+
+         p {
+            color: #ffffffae;
+         }
+
+         span {
+            color: #2582FF;
+            cursor: pointer;
+         }
+      }
+   }
+
+   .upgrage-sq {
+      background-color: #1319288a;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      padding: 20px;
+
+      .current-quality {
+         padding: 30px 10px;
+         padding-bottom: 10px;
+         border-radius: 10px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: space-between;
+         height: 90%;
+         gap: 20px;
+
+      }
+   }
+
+
+   .upper-wrp-Join-after {
+      background-color: #1319288a;
+      width: 100%;
+      border-radius: 15px;
+      padding: 20px;
+   }
+
+   .wrapper-Join-after {
+      margin-top: 20px;
+      height: 214px;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+         width: 6px;
+         height: 0px;
+       }
+      
+      .box-Join-after {
+         padding: 10px 15px;
+         border-radius: 10px;
+         display: flex;
+         align-items: center;
+         margin-bottom: 10px;
+         gap: 10px;
+
+         img {}
+
+         p {
+            color: #e7e7e7;
+            cursor: pointer;
          }
       }
    }

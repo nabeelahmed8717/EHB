@@ -49,16 +49,15 @@ const SideBar = () => {
 
   const items: MenuItem[] = [
     getItem(<div onClick={() => navigate('./home')}>Dashboard</div>, '1', <PieChartOutlined />),
-    getItem(<div onClick={() => navigate('./home')}>News</div>, '2', <img src={newsIcon} width={15} height={15} alt="" />),
-    getItem(<div onClick={() => navigate('./home')}>Coming.s Companies </div>, '3', <img src={comingSoonIcon} width={15} height={15} alt="" />),
-    getItem(<div onClick={() => navigate('./home')}>Reports</div>, '4', <img src={analysisIcon} width={15} height={15} alt="" />),
-    getItem(<div onClick={() => navigate('./home')}>Performance</div>, '5', <img src={performanceIcon} width={15} height={15} alt="" />),
     getItem(<div>EHB Services</div>, 'sub1', <img src={gripDotsIcon} width={15} height={15} alt="" />, [
       getItem(<div>GoSellr</div>, '6'),
       getItem(<div>MLM</div>, '7'),
       getItem(<div>Affiliate Program</div>, '8'),
     ]),
-    
+    getItem(<div onClick={() => navigate('./home')}>Performance</div>, '5', <img src={performanceIcon} width={15} height={15} alt="" />),
+    getItem(<div onClick={() => navigate('./home')}>Coming.s Companies </div>, '3', <img src={comingSoonIcon} width={15} height={15} alt="" />),
+    getItem(<div onClick={() => navigate('./home')}>News</div>, '2', <img src={newsIcon} width={15} height={15} alt="" />),
+    getItem(<div onClick={() => navigate('./home')}>Reports</div>, '4', <img src={analysisIcon} width={15} height={15} alt="" />),
   ];
 
   return (
