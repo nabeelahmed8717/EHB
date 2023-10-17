@@ -1,5 +1,5 @@
 .main-header-wrapper {
-  background-color: #F3F6F8 !important;
+  background-color: #050C1D !important;
   width: 100%;
   height: 65px;
   padding: 0px 33px;
@@ -7,9 +7,10 @@
   top: 0;
   z-index: 10;
   transition: 0.3s;
+  border-bottom: 1px solid #272727;
   @media (max-width: 768px) {
     padding: 0px 12px;
-    border-bottom: 1px solid #e7e7e9;
+    // border-bottom: 1px solid #e7e7e9;
   }
   .brand-logo {
     img {
@@ -55,13 +56,13 @@
       transition: 0.3s;
       position: relative;
       img {
-        filter: none;
+        filter: invert(1) brightness(1.5);
         transition: 0.3s;
       }
       .sp-only-chat{
         position: absolute;
         top: 0;
-        background-color: #202020;
+        background-color: #6b6b6b;
         padding: 1px 7px;
         font-size: 9px;
         font-weight: 700;

@@ -32,7 +32,6 @@ const SignIn = Loadable(lazy(() => import("./pages/signIn")));
 const SignUp = Loadable(lazy(() => import("./pages/signUp")));
 
 
-const Packages = Loadable(lazy(() => import("./pages/sqPackages")));
 
 
 
@@ -53,10 +52,6 @@ export const routes: any = [
       {
         path: "home",
         element: <LandingPage />,
-      },
-      {
-        path: "packages",
-        element: <Packages />,
       },
     ],
   },

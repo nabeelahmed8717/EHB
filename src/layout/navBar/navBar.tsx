@@ -89,7 +89,7 @@ const NavBar = () => {
     ]
 
     const respMenuItems = [
-       
+
         {
             key: '2',
             label: 'Manage Profile',
@@ -183,7 +183,11 @@ const NavBar = () => {
             style={{ top: visible ? 0 : '-100px', }}
         >
             <div className="brand-logo">
-                <p style={{ color: "rgb(173 173 173)" }} ><strong>Powered by EHB</strong></p>
+                <p style={{
+                    backgroundColor: "rgb(39 174 96 / 26%)",
+                    color: "#27ae60", padding: "6px 10px",
+                    borderRadius: "8px"
+                }} ><strong>EHB Future</strong></p>
             </div>
             {isAuthenticated ?
                 <div className="nav-menu d-flex align-items-center">
@@ -218,7 +222,7 @@ const NavBar = () => {
                         <UserProfileCard isMobile={isMobile} />
                         {
                             respMenuItems.map((item: any) => (
-                                <div className="drp-items-nav" onClick={() => { item.link && navigate(`${item.link}`); setisDrawerOpen(false)  }} style={{ marginTop: '10px' }} key={item.key}>
+                                <div className="drp-items-nav" onClick={() => { item.link && navigate(`${item.link}`); setisDrawerOpen(false) }} style={{ marginTop: '10px' }} key={item.key}>
                                     <img src={item.icon} alt="" /> <p>{item.label}</p>
                                 </div>
                             ))

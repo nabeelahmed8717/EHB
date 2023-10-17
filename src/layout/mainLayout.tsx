@@ -60,11 +60,11 @@ const MainLayout = () => {
                 <Col xs={24} sm={24} md={18} lg={20} >
                     <NavBar />
                     <div className="wrapper-after-outlet">
-                    <div className="wrapper-layout-outlet">
-                        <Outlet />
+                        <div className="wrapper-layout-outlet">
+                            <Outlet />
+                        </div>
                     </div>
-                    </div>
-                    
+
                 </Col>
             </Row>
 

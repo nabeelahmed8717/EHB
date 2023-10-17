@@ -10,14 +10,14 @@ import {
 } from '@ant-design/icons';
 
 import orderIcon from "../../assets/icons/orders.svg"
-import productsIcon from "../../assets/icons/products.svg"
-import settingsIcon from "../../assets/icons/settings.svg"
+import newsIcon from "../../assets/icons/news.svg"
+import comingSoonIcon from "../../assets/icons/hourglass-end.svg"
 import packagesIcon from "../../assets/icons/packages.svg"
 import marketingIcon from "../../assets/icons/marketing.svg"
 import analysisIcon from "../../assets/icons/analysis.svg"
-import guideIcon from "../../assets/icons/memo-pad.svg"
-import manageUsersIcon from "../../assets/icons/user-gear.svg"
-import profileIcon from "../../assets/icons/user.svg"
+import performanceIcon from "../../assets/icons/speed.svg"
+import gripDotsIcon from "../../assets/icons/grip-dots.svg"
+import EHBIcon from "../../assets/icons/ehb-companies/ehb-main-dark.svg"
 
 import {
   PieChartOutlined,
@@ -49,17 +49,26 @@ const SideBar = () => {
 
   const items: MenuItem[] = [
     getItem(<div onClick={() => navigate('./home')}>Dashboard</div>, '1', <PieChartOutlined />),
-    getItem(<div>Manage Profile</div>, '2', <img src={profileIcon} width={15} height={15} alt="" />),
-    getItem(<div onClick={() => navigate('./packages')} >Packages</div>, '7', <img src={packagesIcon} width={15} height={15} alt="" />),
-    getItem(<div>Reports</div>, '11', <img src={analysisIcon} width={15} height={15} alt="" />),
-    getItem(<div>User Guides</div>, '12', <img src={guideIcon} width={15} height={15} alt="" />),
+    getItem(<div onClick={() => navigate('./home')}>News</div>, '2', <img src={newsIcon} width={15} height={15} alt="" />),
+    getItem(<div onClick={() => navigate('./home')}>Coming.s Companies </div>, '3', <img src={comingSoonIcon} width={15} height={15} alt="" />),
+    getItem(<div onClick={() => navigate('./home')}>Reports</div>, '4', <img src={analysisIcon} width={15} height={15} alt="" />),
+    getItem(<div onClick={() => navigate('./home')}>Performance</div>, '5', <img src={performanceIcon} width={15} height={15} alt="" />),
+    getItem(<div>EHB Services</div>, 'sub1', <img src={gripDotsIcon} width={15} height={15} alt="" />, [
+      getItem(<div>GoSellr</div>, '6'),
+      getItem(<div>MLM</div>, '7'),
+      getItem(<div>Affiliate Program</div>, '8'),
+    ]),
+    
   ];
 
   return (
     <div className='main-sidebar-wrapper'>
       <div className="logo-main-area" style={{color:"#fff"}}>
-        <h3>PSS</h3>
-        <p>Personal Security Service</p>
+        <div style={{display:"flex", alignItems:"center", gap:"10px", marginBottom:"5px"}}>
+        <img src={EHBIcon} width={70} alt="" />
+        <h2>EHB</h2>
+        </div>
+        <p>Education Health Business</p>
       </div>
       <div className="user-utils-wrapper">
         {/* <div className="user-utils-main-inner">
