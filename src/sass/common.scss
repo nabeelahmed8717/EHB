@@ -610,6 +610,19 @@ input {
   }
 }
 
+.common-btn-dull{
+  background-color:  #1863c5;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  height: auto;
+  border-radius: 11px;
+  &:hover{
+    background-color: #2582ff;
+    color: #ffffff;
+  }
+}
+
 .scroll-s{
 
 &::-webkit-scrollbar-track {
