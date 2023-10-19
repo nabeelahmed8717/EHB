@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./dashboard.scss"
-import { Avatar, Button, Col, Image, Row } from 'antd'
+import { Avatar, Button, Col, Image, Modal, Row } from 'antd'
 
 import earningsIcon from "../../assets/images/earnings.png"
 import briefcaseIcon from "../../assets/images/briefcase.png"
@@ -15,6 +15,9 @@ import mlmWorld from "../../assets/images/online-world.gif"
 import serviceImage from "../../assets/images/award.png"
 import wrapperWall from "../../assets/wrapper/main-wall.png"
 import wrapperWallRes from "../../assets/wrapper/main-wall-res.png"
+import TimerRef from './timerRefPros/timerRefPros'
+import Timer from './timerRefPros/timerRefPros'
+import TimerComponent from './timerRefPros/timerRefPros'
 
 
 const ehbDapartmentsData = [
@@ -37,6 +40,21 @@ const ehbDapartmentsData = [
     icon: emoIcon,
     label: "EMO",
     disp: "Easy management Office",
+  },
+]
+
+const serviceStatsData = [
+  {
+    service: 'Seller',
+    reference: "goSellr",
+    dateStarted: "2023-05-02",
+    dateEnd: "2023-05-15T17:30:00Z"
+  },
+  {
+    service: 'Franchiser',
+    reference: "Ehb-franchise",
+    dateStarted: "2023-07-02",
+    dateEnd: "2023-05-15T17:30:00Z"
   },
 ]
 
@@ -82,6 +100,7 @@ const Dashboard = () => {
   const navigate = useNavigate()
 
   const [isMobile, setIsMobile] = useState(false);
+  const [isViewRefillStats, setIsViewRefillStats] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
@@ -208,7 +227,7 @@ const Dashboard = () => {
             <h4 className='tex-dull'>Refill Service Quality</h4>
             <div className="current-quality dark-card">
               <img src={serviceImage} width={100} alt="" />
-              <Button style={{ width: "100%" }} className='common-btn-tr'>Refill</Button>
+              <Button style={{ width: "100%" }} className='common-btn-tr' onClick={() => setIsViewRefillStats(true)}>View</Button>
             </div>
           </div>
         </Col>
@@ -234,6 +253,28 @@ const Dashboard = () => {
       <br />
       <br />
       <br />
+
+      <Modal title={<div className='tex-w'>Stats Service Refill <span style={{ color: "#e74c3c", fontWeight: "400", fontSize: "12px" }}>Actions Required</span></div>} rootClassName='view-refill-stats-modal' open={isViewRefillStats} footer={false} onCancel={() => setIsViewRefillStats(false)}>
+        <h4 className='tex-dull'>Services You are using</h4>
+
+        <div className="box-list-services">
+          <Row gutter={[20, 20]}>
+            {
+              serviceStatsData.map((item: any) => (
+                <Col lg={12}>
+                  <div className="bx-service">
+                    <h2 className='title'>Service Title</h2>
+                    <p className='ser'>{item.service} - {'('} {item.reference} {')'}</p>
+                    <TimerComponent startProp={item.dateStarted}/>
+
+                    <Button className='common-btn-tr' style={{ width: "100%", marginTop: "10px" }}>Refill</Button>
+                  </div>
+                </Col>
+              ))
+            }
+          </Row>
+        </div>
+      </Modal>
 
     </div>
   )

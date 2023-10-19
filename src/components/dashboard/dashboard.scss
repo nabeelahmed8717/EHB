@@ -1,13 +1,15 @@
 .dashboard-main-wrapper {
 
-   .wrapper-wall{
+   .wrapper-wall {
       border-radius: 15px;
       overflow: hidden;
       margin-bottom: 20px;
-      img{
+
+      img {
          width: 100%;
       }
    }
+
    .main-cards-hd {
       width: 100%;
       height: 150px;
@@ -111,9 +113,11 @@
       .flex-wrp {
          display: flex;
          gap: 20px;
+
          @media (max-width: 768px) {
-           flex-direction: column;
-          }
+            flex-direction: column;
+         }
+
          img {
             width: 50%;
             margin: 0 auto;
@@ -131,11 +135,12 @@
          }
 
       }
+
       @media (max-width: 768px) {
-         button{
+         button {
             margin-top: 20px;
          }
-        }
+      }
    }
 
    .upper-wrp-quick-links {
@@ -149,11 +154,12 @@
       margin-top: 20px;
       height: 214px;
       overflow: scroll;
+
       &::-webkit-scrollbar {
          width: 6px;
          height: 0px;
-       }
-      
+      }
+
 
       .box-quick-links {
          padding: 10px 15px;
@@ -207,11 +213,12 @@
       margin-top: 20px;
       height: 214px;
       overflow: scroll;
+
       &::-webkit-scrollbar {
          width: 6px;
          height: 0px;
-       }
-      
+      }
+
       .box-Join-after {
          padding: 10px 15px;
          border-radius: 10px;
@@ -225,6 +232,37 @@
          p {
             color: #e7e7e7;
             cursor: pointer;
+         }
+      }
+   }
+}
+
+.view-refill-stats-modal {
+   .ant-modal-content {
+      background-color: #131928;
+      color: #fff;
+
+      .ant-modal-title {
+         background-color: #131928;
+
+      }
+   }
+
+   .box-list-services {
+      margin-top: 20px;
+
+      .bx-service {
+         background-color: #181f32;
+         border-radius: 10px;
+         padding: 15px;
+
+         .title {
+            font-size: 12px;
+            color: #f0f8ff85;
+         }
+
+         .ser {
+            font-size: 18px;
          }
       }
    }
