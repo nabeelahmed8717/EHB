@@ -264,7 +264,7 @@ const Dashboard = () => {
           <Row gutter={[20, 20]}>
             {
               serviceStatsData.map((item: any) => (
-                <Col lg={12}>
+                <Col xs={24} sm={24} md={24} lg={12}>
                   <div className="bx-service">
                     <h2 className='title'>Service Title</h2>
                     <p className='ser'>{item.service} - {'('} {item.reference} {')'}</p>
