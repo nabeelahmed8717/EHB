@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./dashboard.scss"
-import { Avatar, Button, Col, Image, Modal, Row } from 'antd'
+import { Avatar, Badge, Button, Col, Image, Modal, Row } from 'antd'
 
 import earningsIcon from "../../assets/images/earnings.png"
 import briefcaseIcon from "../../assets/images/briefcase.png"
@@ -227,7 +227,10 @@ const Dashboard = () => {
             <h4 className='tex-dull'>Refill Service Quality</h4>
             <div className="current-quality dark-card">
               <img src={serviceImage} width={100} alt="" />
-              <Button style={{ width: "100%" }} className='common-btn-tr' onClick={() => setIsViewRefillStats(true)}>View</Button>
+                <Button style={{ width: "100%" }} block className='common-btn-tr' onClick={() => setIsViewRefillStats(true)}>View</Button>
+            </div>
+            <div className="notify-sql">
+              2 Actions required
             </div>
           </div>
         </Col>
@@ -254,7 +257,7 @@ const Dashboard = () => {
       <br />
       <br />
 
-      <Modal title={<div className='tex-w'>Stats Service Refill <span style={{ color: "#e74c3c", fontWeight: "400", fontSize: "12px" }}>Actions Required</span></div>} rootClassName='view-refill-stats-modal' open={isViewRefillStats} footer={false} onCancel={() => setIsViewRefillStats(false)}>
+      <Modal width={700} title={<div className='tex-w'>Stats Service Refill <span style={{ color: "#e74c3c", fontWeight: "400", fontSize: "12px" }}>Actions Required</span></div>} rootClassName='view-refill-stats-modal' open={isViewRefillStats} footer={false} onCancel={() => setIsViewRefillStats(false)}>
         <h4 className='tex-dull'>Services You are using</h4>
 
         <div className="box-list-services">
@@ -265,9 +268,8 @@ const Dashboard = () => {
                   <div className="bx-service">
                     <h2 className='title'>Service Title</h2>
                     <p className='ser'>{item.service} - {'('} {item.reference} {')'}</p>
-                    <TimerComponent startProp={item.dateStarted}/>
-
-                    <Button className='common-btn-tr' style={{ width: "100%", marginTop: "10px" }}>Refill</Button>
+                    <TimerComponent startProp={item.dateStarted} />
+                    <Button className='common-btn-tr' style={{ width: "100%", marginTop: "10px" }}>Refill </Button>
                   </div>
                 </Col>
               ))

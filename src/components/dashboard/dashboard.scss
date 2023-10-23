@@ -186,7 +186,19 @@
       height: 100%;
       border-radius: 15px;
       padding: 20px;
-
+      position: relative;
+.notify-sql{
+   position: absolute;
+    top: -8px;
+    right: 0;
+    background-color: #e74c3c21;
+    color: #e74c3c;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+}
       .current-quality {
          padding: 30px 10px;
          padding-bottom: 10px;
@@ -238,6 +250,10 @@
 }
 
 .view-refill-stats-modal {
+   // width: 700px !important;
+   .ant-model{
+      // width: 700px !important;
+   }
    .ant-modal-content {
       background-color: #131928;
       color: #fff;
@@ -263,6 +279,7 @@
 
          .ser {
             font-size: 18px;
+            margin-bottom: 15px;
          }
       }
    }

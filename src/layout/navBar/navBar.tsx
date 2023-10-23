@@ -1,4 +1,4 @@
-import { Button, Drawer, Dropdown, Input, MenuProps, Modal } from 'antd'
+import { Button, Drawer, Dropdown, Input, MenuProps, Modal, Popover } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import "./navBar.scss"
@@ -12,7 +12,7 @@ import services from "../../assets/icons/stars.svg"
 import menu from "../../assets/icons/fi-rr-menu-burger.svg"
 import cart from "../../assets/icons/cart.svg"
 
-import userIcon from "../../assets/raw/userIconOne.svg"
+import ehbCompSwitch from "../../assets/icons/company-switch.svg"
 import document from "../../assets/icons/document.svg"
 import settings from "../../assets/icons/fi-rs-settings.svg"
 import signOut from "../../assets/icons/fi-rs-sign-out.svg"
@@ -24,7 +24,6 @@ import packagesIcon from "../../assets/icons/packages.svg"
 import marketingIcon from "../../assets/icons/marketing.svg"
 import verificationIcon from "../../assets/icons/check-circle.svg"
 import analysisIcon from "../../assets/icons/analysis.svg"
-import guideIcon from "../../assets/icons/memo-pad.svg"
 import manageUsersIcon from "../../assets/icons/user-gear.svg"
 
 import Switch from "../../assets/icons/fi-rr-refresh.svg"
@@ -33,6 +32,10 @@ import EHBIcon from "../../assets/icons/ehb-companies/ehb-main-dark.svg"
 
 import { CloseOutlined } from '@ant-design/icons';
 import UserProfileCard from './userProfileCard/userProfileCard';
+import { ehbCompaniesData } from '../../mock/ehbCompanies'
+
+
+
 
 const NavBar = () => {
 
@@ -44,6 +47,8 @@ const NavBar = () => {
 
     const [isAuthenticated, setIsAuthenticated] = useState(true)
     const [isDrawerOpen, setisDrawerOpen] = useState(false);
+
+    const [isCompaniesDrawer, setIsCompaniesDrawer] = useState(false)
 
     const [isMobile, setIsMobile] = useState(false);
 
@@ -177,6 +182,7 @@ const NavBar = () => {
     const classToRender = `main-header-wrapper ${matchingRoute ? "" : "main-header-fr-wh"
         } d-flex justify-between align-center anim-low-to-high`;
 
+
     return (
         <div
             // className={classToRender}
@@ -184,13 +190,14 @@ const NavBar = () => {
             style={{ top: visible ? 0 : '-100px', }}
         >
             <div className="brand-logo">
-                <div style={{display:"flex", alignItems:"center", gap:"10px"}}>
-                {isMobile && <img src={EHBIcon} alt="" />}
-                <p style={{
-                    backgroundColor: "rgb(39 174 96 / 26%)",
-                    color: "#27ae60", padding: "6px 10px",
-                    borderRadius: "8px"
-                }} ><strong>EHB Future</strong></p>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    {isMobile && <img src={EHBIcon} alt="" />}
+                    <p style={{
+                        backgroundColor: "rgb(39 174 96 / 26%)",
+                        color: "#27ae60", padding: "6px 10px",
+                        borderRadius: "8px"
+                    }} ><strong>EHB Future</strong></p>
+                    <Button className='companie-switch' onClick={() => setIsCompaniesDrawer(true)}><img src={ehbCompSwitch} width={20} height={20} alt="" /></Button>
                 </div>
             </div>
             {isAuthenticated ?
@@ -242,6 +249,25 @@ const NavBar = () => {
             }
 
 
+
+            <Drawer title="Companies and Departments" rootClassName='companies-drawer-main' placement="left" onClose={() => setIsCompaniesDrawer(false)} open={isCompaniesDrawer}>
+                <div className="wrapper-companies">
+                    {
+                        ehbCompaniesData.map((item: any) => (
+                            <div className="bx-companies">
+                                <div className="logo">
+                                    <img src={item.logo} width={40} height={40} alt="" />
+                                    <div className='logo-hd-d'>
+                                        <h4>{item.title}</h4>
+                                        <p>{item.disp}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+
+                </div>
+            </Drawer>
 
         </div>
     )

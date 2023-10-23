@@ -2,7 +2,7 @@ import { FC, lazy, LazyExoticComponent, Suspense } from "react";
 import { Navigate } from "react-router-dom";
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import loadingGif from "./assets/loading/boxes-loader.gif"
+import loadingGif from "./assets/loading/loadEhb.gif"
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
@@ -10,21 +10,24 @@ const Loadable = (Component: LazyExoticComponent<FC>) => (props: any) =>
 (
   <Suspense fallback={
     <div
-    className="d-flex justify-center align-center" 
-    style={{ 
-      height: "100vh", 
-      width:"100%",
-      position:'fixed',
-      left:"0",
-      top:"0", 
-    }}
+      className="d-flex justify-center align-center"
+      style={{
+        height: "100vh",
+        width: "100%",
+        position: 'fixed',
+        left: "0",
+        top: "0",
+      }}
     >
-      {/* <Spin indicator={antIcon} /> */}
-      <img src={loadingGif} width={60}  alt="" />
+      <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
+      <img src={loadingGif} width={150} style={{filter:"grayscale(1) brightness(8.5)"}} alt="" />
+      <h3 style={{color:"#6f757b", marginTop:"-29px"}}>EHB</h3>
+      </div>
     </div>
   }>
     <Component {...props} />
   </Suspense>
+  
 );
 const MainLayout = Loadable(lazy(() => import("./layout/mainLayout")));
 const LandingPage = Loadable(lazy(() => import("./pages/dashboard")));
