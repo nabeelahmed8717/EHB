@@ -121,16 +121,14 @@ const Dashboard = () => {
         <img src={isMobile ? wrapperWallRes : wrapperWall} alt="" />
       </div>
       <div className="common-head-wrapper-title">
-        <div style={{ display: 'flex', justifyContent: "space-between" }}>
+        <div style={{ display: 'flex', justifyContent: "space-between", flexWrap:"wrap", gap:"15px" }}>
           <h3>Dashboard</h3>
-          {/* <div className='head-ins'>
-            <Button className='service-quality'>PSS-SQ-level : <strong>High</strong></Button>
-          </div> */}
+          <div className="SQ-verb">
+            SQ Level : <span>3</span> <Button>Upgrade</Button>
+          </div>
         </div>
-
       </div>
       <br />
-      {/* <div className="card0sxsx dark-card"></div> */}
 
       <Row gutter={[20, 20]}>
         <Col xs={24} sm={12} md={12} lg={6}>
@@ -148,7 +146,9 @@ const Dashboard = () => {
               <img src={briefcaseIcon} width={15} height={15} alt="" />
             </div>
             <h5 className='fig-card-head'>EHB Designation</h5>
-            <h2 className='fig-card-num'><span>Manager</span></h2>
+            <h2 className='fig-card-num'><span>--</span></h2>
+            <div className='rib-coming-soon'>Coming soon</div>
+            <div className="badge badge-pss">PSS</div>
           </div>
         </Col>
         <Col xs={12} sm={12} md={12} lg={6}>
@@ -157,7 +157,9 @@ const Dashboard = () => {
               <img src={performanceIcon} width={15} height={15} alt="" />
             </div>
             <h5 className='fig-card-head'>Performance</h5>
-            <h2 className='fig-card-num'>60%</h2>
+            <h2 className='fig-card-num'>--%</h2>
+            <div className='rib-coming-soon'>Coming soon</div>
+            <div className="badge badge-edr">EDR</div>
           </div>
         </Col>
         <Col xs={24} sm={24} md={12} lg={6}>

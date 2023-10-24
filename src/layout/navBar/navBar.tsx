@@ -218,7 +218,7 @@ const NavBar = () => {
                             </div>
                         </>}
 
-                    {isMobile && <Button className="rounded-buttons-nav" onClick={() => navigate('./chat')}><img src={chat} width={20} height={20} alt="" /><div className='sp-only-chat'>5</div></Button>}
+                    {/* {isMobile && <Button className="rounded-buttons-nav" onClick={() => navigate('./chat')}><img src={chat} width={20} height={20} alt="" /><div className='sp-only-chat'>5</div></Button>} */}
                     {isMobile && <Button className="rounded-buttons-nav" onClick={() => navigate('./home')}><img src={notificationIcon} width={20} height={20} alt="" /><div className='sp-only-chat'>2</div></Button>}
                     {isMobile && <Button className="rounded-buttons-nav" onClick={() => setisDrawerOpen(true)}><img src={menu} width={20} height={20} alt="" /></Button>}
 
@@ -254,7 +254,7 @@ const NavBar = () => {
                 <div className="wrapper-companies">
                     {
                         ehbCompaniesData.map((item: any) => (
-                            <div className="bx-companies">
+                            <div className={` ${item?.comingSoon === true ? 'bx-companies bx-companies-coming-soon' : 'bx-companies'}`}>
                                 <div className="logo">
                                     <img src={item.logo} width={40} height={40} alt="" />
                                     <div className='logo-hd-d'>
@@ -262,6 +262,7 @@ const NavBar = () => {
                                         <p>{item.disp}</p>
                                     </div>
                                 </div>
+                                {item?.comingSoon === true && <div className='rib-coming-soon'>Coming soon</div>}
                             </div>
                         ))
                     }

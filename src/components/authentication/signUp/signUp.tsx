@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../authentication.scss"
-import { Button, Checkbox, Col, Form, Input, Modal, Row, Select, Steps } from 'antd'
+import { Button, Checkbox, Col, Form, Input, Modal, Row, Select, Steps, Switch } from 'antd'
 import authOverlay from '../../../assets/wrapper/overlay-auth.svg'
 import brandLogo from '../../../assets/brandAssets/brand-logo-fr-white.svg'
 import googleIcon from '../../../assets/icons/google.svg'
@@ -10,23 +10,27 @@ import ehbIcon from '../../../assets/icons/ehb-companies/ehb-main-dark.svg'
 
 import { useNavigate } from 'react-router-dom'
 import { countryOptions } from '../../../mock/listCountries'
+import { CheckboxChangeEvent } from 'antd/es/checkbox'
 
 const { Option } = Select;
 const { Step } = Steps;
 
 const SignUp = () => {
 
+    const [isRefferal, setIsRefferal] = useState(false)
+
     const navigate = useNavigate()
 
     const onFinish = (values: any) => {
         console.log('Success:', values);
+        navigate("/home")
     };
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
 
-    const validateConfirmPassword = ({ getFieldValue }:any) => ({
-        validator(_:any, value:any) {
+    const validateConfirmPassword = ({ getFieldValue }: any) => ({
+        validator(_: any, value: any) {
             if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
             }
@@ -34,16 +38,25 @@ const SignUp = () => {
         },
 
     });
-    const validateStrongPassword = (_:any, value:any) => {
+    const validateStrongPassword = (_: any, value: any) => {
         // Use a regular expression to check for a strong password (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
         const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    
+
         if (!value || strongPasswordRegex.test(value)) {
-          return Promise.resolve();
+            return Promise.resolve();
         }
-    
+
         return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
-      };
+    };
+
+    const onChange = (checked: boolean) => {
+        setIsRefferal(checked)
+    };
+
+    const onTermsChange = (e: CheckboxChangeEvent) => {
+        console.log(`checked = ${e.target.checked}`);
+    };
+
 
     const phoneRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/;
     return (
@@ -140,13 +153,13 @@ const SignUp = () => {
                                 label="Password"
                                 rules={[
                                     {
-                                      required: true,
-                                      message: 'Please enter your password!',
+                                        required: true,
+                                        message: 'Please enter your password!',
                                     },
                                     {
-                                      validator: validateStrongPassword,
+                                        validator: validateStrongPassword,
                                     },
-                                  ]}
+                                ]}
                             >
                                 <Input.Password rootClassName='styled-input' placeholder="Enter your password" />
                             </Form.Item>
@@ -167,6 +180,42 @@ const SignUp = () => {
                                 <Input.Password rootClassName='styled-input' placeholder="Confirm your password" />
                             </Form.Item>
                         </Col>
+
+                        {!isRefferal &&
+                            <Col xs={24} sm={24} md={24} lg={24}>
+                                <Form.Item
+                                    label="Refferal Code"
+                                    name="reffCode"
+                                    rules={[{ required: true, message: 'Required field' }]}
+                                >
+                                    <Input placeholder="Type here" rootClassName='styled-input' autoComplete='off' />
+                                </Form.Item>
+                            </Col>}
+                        <Col xs={24} sm={24} md={24} lg={24}>
+                            <Form.Item
+                                label=""
+                                name="isRefferal"
+                                rules={[{ required: false, message: 'Required field' }]}
+                            >
+                                <div>
+                                    <Switch checked={isRefferal} rootClassName='refferal-switch' onChange={onChange} />
+                                    <label htmlFor="" style={{ color: "rgb(152 152 152)" }}>&nbsp; I Do'nt have Refferal code </label>
+                                </div>
+                            </Form.Item>
+                        </Col>
+                        <br />
+                        <Col xs={24} sm={24} md={24} lg={24}>
+                            <Form.Item
+                                label=""
+                                name="isRefferal"
+                                rules={[{ required: false, message: 'Required field' }]}
+                            >
+                                <div>
+                                    <Checkbox onChange={onTermsChange}> <span style={{ color: "rgb(152 152 152)" }}>I have read terms and conditions</span></Checkbox>
+                                </div>
+                            </Form.Item>
+                        </Col>
+
                     </Row>
                     <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
                         <Button htmlType='submit' className='common-btn-dull' style={{ width: "100%", marginTop: "30px" }}>Register</Button>
@@ -176,11 +225,11 @@ const SignUp = () => {
 
             </div>
             <div className='lb-docs-nav'>
-                    <p>Terms</p>
-                    <p>Privacy</p>
-                    <p>About</p>
-                    <p className='ex-w'>Contact EHB support</p>
-                </div>
+                <p>Terms</p>
+                <p>Privacy</p>
+                <p>About</p>
+                <p className='ex-w'>Contact EHB support</p>
+            </div>
         </div>
     )
 }

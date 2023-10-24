@@ -1,5 +1,30 @@
 .dashboard-main-wrapper {
 
+   .SQ-verb {
+      background-color: rgba(39, 174, 96, 0.2392156863);
+      color: #27ae60;
+      border-radius: 30px;
+      padding: 5px 10px 5px 18px;
+
+      span {
+         color: #27ae60;
+      }
+
+      button {
+         background-color: #27ae60;
+         color: #fff !important;
+         border-radius: 30px;
+         padding: 3px 10px;
+         height: auto;
+         font-size: 12px;
+         margin-left: 9px;
+         border: none;
+         span{
+            color: #fff;
+         }
+      }
+   }
+
    .wrapper-wall {
       border-radius: 15px;
       overflow: hidden;
@@ -15,6 +40,7 @@
       height: 150px;
       border-radius: 15px;
       padding: 20px;
+      position: relative;
 
       .card-icon {
          width: 32px;
@@ -47,6 +73,40 @@
       .fig-card-num {
          color: aliceblue;
       }
+
+      .rib-coming-soon {
+         background-color: #f39c121f;
+         color: #f39c12;
+         position: absolute;
+         right: 0;
+         top: 22px;
+         font-size: 9px;
+         padding: 4px 8px;
+         border-radius: 3px 0px 0px 3px;
+       }
+       .badge{
+         width: fit-content;
+         padding: 2px 7px;
+         font-size: 12px;
+         font-weight: 500;
+         border-radius: 4px;
+         position: absolute;
+         right: 10px;
+         bottom: 10px;
+       }
+       .badge-pss {
+         background-color: #3498db42;
+         color: #3498db;
+       }
+     
+       .badge-jps {
+         background-color: #27ae6045;
+         color: #27ae60;
+       }
+       .badge-edr {
+         background-color: rgb(142 68 173 / 27%);
+         color: #8e44ad;
+       }
    }
 
    .account-bx {
@@ -187,18 +247,20 @@
       border-radius: 15px;
       padding: 20px;
       position: relative;
-.notify-sql{
-   position: absolute;
-    top: -8px;
-    right: 0;
-    background-color: #e74c3c21;
-    color: #e74c3c;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 7px 12px;
-    border-radius: 20px;
-    font-size: 10px;
-}
+
+      .notify-sql {
+         position: absolute;
+         top: -8px;
+         right: 0;
+         background-color: #e74c3c21;
+         color: #e74c3c;
+         width: -moz-fit-content;
+         width: fit-content;
+         padding: 7px 12px;
+         border-radius: 20px;
+         font-size: 10px;
+      }
+
       .current-quality {
          padding: 30px 10px;
          padding-bottom: 10px;
@@ -250,10 +312,12 @@
 }
 
 .view-refill-stats-modal {
+
    // width: 700px !important;
-   .ant-model{
+   .ant-model {
       // width: 700px !important;
    }
+
    .ant-modal-content {
       background-color: #131928;
       color: #fff;
