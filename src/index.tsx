@@ -6,7 +6,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { ConfigProvider } from 'antd';
+import { Provider } from "react-redux";
 import { theme } from "./theme/theme";
+import { store } from "./store";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,9 +16,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <ConfigProvider theme={theme}>
-        <App />
-      </ConfigProvider>
+      <Provider store={store}>
+        <ConfigProvider theme={theme}>
+          <App />
+        </ConfigProvider>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

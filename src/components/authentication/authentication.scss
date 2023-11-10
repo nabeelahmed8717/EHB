@@ -64,34 +64,39 @@ body {
       }
     }
   }
-  .bottom-res{
+
+  .bottom-res {
     color: #ffffff8f;
     text-align: center;
     margin-top: 20px;
-    span{
-      color:  #2582ff;
+
+    span {
+      color: #2582ff;
       cursor: pointer;
-      &:hover{
+
+      &:hover {
         color: #2a56b8;
       }
     }
   }
 
-  .header-alg{
+  .header-alg {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 6vh;
+
     @media (max-width: 500px) {
       margin-top: 5vh;
     }
-    p{
+
+    p {
       font-size: 18px;
       margin-top: 10px;
     }
   }
 
-  .lb-docs-nav{
+  .lb-docs-nav {
     color: #2582ff;
     display: flex;
     align-items: center;
@@ -100,11 +105,13 @@ body {
     font-size: 14px;
     margin-top: 10vh;
     margin-bottom: 40px;
-    p{
+
+    p {
       cursor: pointer;
     }
-    .ex-w{
-color: #a1a1a1;
+
+    .ex-w {
+      color: #a1a1a1;
     }
   }
 
@@ -119,11 +126,12 @@ color: #a1a1a1;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.38);
     border: 1px solid #5c5c5c42;
 
-   
+
     @media (max-width: 800px) {
       width: 60%;
       margin-top: 5vh;
     }
+
     @media (max-width: 500px) {
       width: 95%;
       margin-top: 5vh;
@@ -177,19 +185,21 @@ color: #a1a1a1;
     }
   }
 
-  .ant-input-password{
-    input.ant-input{
+  .ant-input-password {
+    input.ant-input {
       background-color: #131928 !important;
-    color: #fff;
-    &::placeholder {
-      color: #444451 !important;
-    }
+      color: #fff;
+
+      &::placeholder {
+        color: #444451 !important;
+      }
     }
   }
+
   .anticon svg {
     display: inline-block;
     color: aliceblue;
-}
+  }
 
   .end-navigator {
     color: #727272;
@@ -215,21 +225,33 @@ color: #a1a1a1;
     background-color: #131928 !important;
     border: 1px solid transparent !important;
     color: #fff !important;
-    &::placeholder {
-    }
-    .ant-select-selection-placeholder{
+
+    &::placeholder {}
+
+    .ant-select-selection-placeholder {
       color: #444451 !important;
     }
-    .ant-select-selection-item{
+
+    .ant-select-selection-item {
       color: #fff !important;
     }
-    
+
   }
 
 
 
   .passwords-wrapper {
     width: 100%;
+  }
+
+  .error-message-footer{
+    background-color: #c0392b1f;
+    width: 100%;
+    height: 90px;
+    border: 1px solid #c0392b9c;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: #c0392b;
   }
 }
 
@@ -251,22 +273,26 @@ color: #a1a1a1;
   border: 1px solid transparent !important;
   color: #fff;
   border-radius: 5px;
-  
+
   .ant-select-dropdown {
     background-color: #131928 !important;
 
   }
+
   .ant-select-item-option-content {
     color: #cbcbcb !important;
   }
-  .ant-select-item-option-active{
+
+  .ant-select-item-option-active {
     background-color: #050b1b !important;
   }
-  .ant-select-item-option-selected{
+
+  .ant-select-item-option-selected {
     background-color: #050b1b !important;
   }
 }
-.refferal-switch{
-    background-color: #1c243a;
+
+.refferal-switch {
+  background-color: #1c243a;
 
 }

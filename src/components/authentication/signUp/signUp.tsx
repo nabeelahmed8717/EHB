@@ -11,19 +11,37 @@ import ehbIcon from '../../../assets/icons/ehb-companies/ehb-main-dark.svg'
 import { useNavigate } from 'react-router-dom'
 import { countryOptions } from '../../../mock/listCountries'
 import { CheckboxChangeEvent } from 'antd/es/checkbox'
+import { usePostCreateUserMutation } from '../../../store/apis/user'
 
 const { Option } = Select;
 const { Step } = Steps;
 
 const SignUp = () => {
 
+    const [postCreateUser, { isLoading }] = usePostCreateUserMutation();
+
     const [isRefferal, setIsRefferal] = useState(false)
-
+    const [regError, setRegError] = useState('')
     const navigate = useNavigate()
+    const onFinish = async (values: any) => {
+        
+        const payload = {
+            "firstName": values.firstName,
+            "lastName": values.lastName,
+            "email": values.email,
+            "country": values.country,
+            "phoneNumber": values.phone,
+            "password": values.password,
+            "referralCode": values.reffCode
+        }
+        try {
+            await postCreateUser({ payload }).unwrap();
+            navigate('/sign-in')
+        } catch (error: any) {
+            console.log(error)
+            error?.data ? setRegError(error?.data) : setRegError('')
 
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
-        navigate("/home")
+        }
     };
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
@@ -48,7 +66,6 @@ const SignUp = () => {
 
         return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
     };
-
     const onChange = (checked: boolean) => {
         setIsRefferal(checked)
     };
@@ -56,9 +73,11 @@ const SignUp = () => {
     const onTermsChange = (e: CheckboxChangeEvent) => {
         console.log(`checked = ${e.target.checked}`);
     };
-
-
     const phoneRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+
+
+
+
     return (
         <div className='auth-main-wrapper tex-w'>
             <div className='header-alg'>
@@ -217,8 +236,11 @@ const SignUp = () => {
                         </Col>
 
                     </Row>
+                    {regError && <div className="error-message-footer">
+                        {regError}
+                    </div>}
                     <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-                        <Button htmlType='submit' className='common-btn-dull' style={{ width: "100%", marginTop: "30px" }}>Register</Button>
+                        <Button htmlType='submit' loading={isLoading} className='common-btn-dull' style={{ width: "100%", marginTop: "30px" }}>Register</Button>
                     </div>
                     <p className='bottom-res'>Already have an account ? <span onClick={() => navigate('/sign-in')}>Sign in</span></p>
                 </Form>
