@@ -1,3 +1,5 @@
+
+import jwt from 'jsonwebtoken';
 import { AES, enc } from "crypto-js";
 export const handleEncryptData = (
   key: string,
@@ -13,8 +15,9 @@ export const handleEncryptData = (
 
 export const getDecryptedObject = (key: string, secretKey: string) => {
   const ciphertext = localStorage.getItem(key);
+  console.log("ciphertext", ciphertext)
   if (ciphertext) {
-    const bytes = AES.decrypt(ciphertext, secretKey);
+    const bytes = AES.decrypt(ciphertext.toString(), secretKey);
     const decryptedData = bytes.toString(enc.Utf8);
     const jsonData = JSON.parse(decryptedData);
     //   const plaintext = bytes.toString(enc.Utf8);
@@ -27,7 +30,6 @@ export const getDecryptedObject = (key: string, secretKey: string) => {
   }
   return null;
 };
-
 
 
 

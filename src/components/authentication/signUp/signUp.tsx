@@ -24,7 +24,7 @@ const SignUp = () => {
     const [regError, setRegError] = useState('')
     const navigate = useNavigate()
     const onFinish = async (values: any) => {
-        
+        setRegError('')
         const payload = {
             "firstName": values.firstName,
             "lastName": values.lastName,

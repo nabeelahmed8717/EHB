@@ -34,12 +34,27 @@ const LandingPage = Loadable(lazy(() => import("./pages/dashboard")));
 const SignIn = Loadable(lazy(() => import("./pages/signIn")));
 const SignUp = Loadable(lazy(() => import("./pages/signUp")));
 
+// const isTokenAvailable = () => {
+//   return localStorage.getItem('token') !== null;
+// };
+// const protectedRoute = (element: any) => (isTokenAvailable() ? element : <Navigate to="/sign-in" />);
 
 
 
+const isTokenAvailable = () => {
+  const token = localStorage.getItem('token');
+  console.log('Token:', token); // Debug statement
+  return token !== null;
+};
+
+const protectedRoute = (element: any) => {
+  const isAvailable = isTokenAvailable();
+  console.log('Is Token Available:', isAvailable); // Debug statement
+  return isAvailable ? element : <Navigate to="/sign-in" />;
+};
 
 export const routes: any = [
-  { path: "/", element: <Navigate to="home" /> },
+  { path: "/", element: protectedRoute(<Navigate to="home" />)  },
   {
     path: "sign-in",
     element: <SignIn />,
@@ -54,7 +69,7 @@ export const routes: any = [
     children: [
       {
         path: "home",
-        element: <LandingPage />,
+        element: protectedRoute(<LandingPage />),
       },
     ],
   },

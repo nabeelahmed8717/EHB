@@ -36,7 +36,6 @@ import { ehbCompaniesData } from '../../mock/ehbCompanies'
 
 
 
-
 const NavBar = () => {
 
     const location = useLocation();
@@ -60,6 +59,16 @@ const NavBar = () => {
     const [isAdvanceSearch, setIsAdvanceSearch] = useState(false);
 
     const navigate = useNavigate()
+
+    const handleSignOut = () => {
+        localStorage.clear();
+        navigate('/sign-in')
+      };
+
+
+      const token:any = localStorage.getItem('token');
+      console.log("token", token)
+
 
     const items: MenuProps['items'] = [
         {
@@ -87,7 +96,7 @@ const NavBar = () => {
         {
             key: '4',
             label: (
-                <div className="drp-items-nav">
+                <div className="drp-items-nav" onClick={handleSignOut}>
                     <img src={signOut} alt="" /> <p>Sign out</p>
                 </div>
             ),

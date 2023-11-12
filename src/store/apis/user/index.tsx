@@ -8,9 +8,14 @@ export const UserApi = GlobalApiSlice.injectEndpoints({
         url: `https://ehb-be-production.up.railway.app/api/users`,
         method: "POST",
         body: payload,
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
+      }),
+      invalidatesTags: ["Auth"],
+    }),
+    postLoginUser: builder.mutation({
+      query: ({ payload }: any) => ({
+        url: `https://ehb-be-production.up.railway.app/api/auth`,
+        method: "POST",
+        body: payload,
       }),
       invalidatesTags: ["Auth"],
     }),
@@ -19,4 +24,5 @@ export const UserApi = GlobalApiSlice.injectEndpoints({
 
 export const {
   usePostCreateUserMutation,
+  usePostLoginUserMutation
 } = UserApi;
