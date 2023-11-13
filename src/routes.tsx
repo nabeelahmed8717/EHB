@@ -19,42 +19,36 @@ const Loadable = (Component: LazyExoticComponent<FC>) => (props: any) =>
         top: "0",
       }}
     >
-      <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
-      <img src={loadingGif} width={150} style={{filter:"grayscale(1) brightness(8.5)"}} alt="" />
-      <h3 style={{color:"#6f757b", marginTop:"-29px"}}>EHB</h3>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
+        <img src={loadingGif} width={150} style={{ filter: "grayscale(1) brightness(8.5)" }} alt="" />
+        <h3 style={{ color: "#6f757b", marginTop: "-29px" }}>EHB</h3>
       </div>
     </div>
   }>
     <Component {...props} />
   </Suspense>
-  
+
 );
 const MainLayout = Loadable(lazy(() => import("./layout/mainLayout")));
 const LandingPage = Loadable(lazy(() => import("./pages/dashboard")));
 const SignIn = Loadable(lazy(() => import("./pages/signIn")));
 const SignUp = Loadable(lazy(() => import("./pages/signUp")));
 
-// const isTokenAvailable = () => {
-//   return localStorage.getItem('token') !== null;
-// };
-// const protectedRoute = (element: any) => (isTokenAvailable() ? element : <Navigate to="/sign-in" />);
-
-
-
 const isTokenAvailable = () => {
   const token = localStorage.getItem('token');
-  console.log('Token:', token); // Debug statement
   return token !== null;
 };
 
-const protectedRoute = (element: any) => {
-  const isAvailable = isTokenAvailable();
-  console.log('Is Token Available:', isAvailable); // Debug statement
-  return isAvailable ? element : <Navigate to="/sign-in" />;
+const PrivateRoute = ({ element, path }: any) => {
+  if (isTokenAvailable() || path === 'sign-in' || path === 'sign-up') {
+    return element;
+  } else {
+    return <Navigate to="/sign-in" />;
+  }
 };
 
 export const routes: any = [
-  { path: "/", element: protectedRoute(<Navigate to="home" />)  },
+  { path: "/", element: <Navigate to="home" /> },
   {
     path: "sign-in",
     element: <SignIn />,
@@ -69,8 +63,39 @@ export const routes: any = [
     children: [
       {
         path: "home",
-        element: protectedRoute(<LandingPage />),
+        element: <PrivateRoute element={<LandingPage />} path="home" />,
       },
     ],
   },
 ];
+
+
+// export const routes: any = [
+//   { path: "/", element: <Navigate to="home" /> },
+//   {
+//     path: "sign-in",
+//     element: <SignIn />,
+//   },
+//   {
+//     path: "sign-up",
+//     element: <SignUp />,
+//   },
+//   {
+//     path: "/",
+//     element: <MainLayout />,
+//     children: [
+//       {
+//         path: "home",
+//         element: <LandingPage/>,
+//       },
+//       {
+//         path: "profile",
+//         element: <Profile/>,
+//       },
+//       {
+//         path: "news",
+//         element: <News/>,
+//       },
+//     ],
+//   },
+// ];

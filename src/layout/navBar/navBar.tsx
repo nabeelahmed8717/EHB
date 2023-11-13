@@ -34,8 +34,6 @@ import { CloseOutlined } from '@ant-design/icons';
 import UserProfileCard from './userProfileCard/userProfileCard';
 import { ehbCompaniesData } from '../../mock/ehbCompanies'
 
-
-
 const NavBar = () => {
 
     const location = useLocation();
@@ -63,11 +61,12 @@ const NavBar = () => {
     const handleSignOut = () => {
         localStorage.clear();
         navigate('/sign-in')
-      };
+    };
 
 
-      const token:any = localStorage.getItem('token');
-      console.log("token", token)
+    //   const token:any = localStorage.getItem('token');
+
+    
 
 
     const items: MenuProps['items'] = [
@@ -239,7 +238,7 @@ const NavBar = () => {
                         open={isDrawerOpen}
                         key="left"
                     >
-                        <UserProfileCard isMobile={isMobile} />
+                        <UserProfileCard isMobile={isMobile}/>
                         {
                             respMenuItems.map((item: any) => (
                                 <div className="drp-items-nav" onClick={() => { item.link && navigate(`${item.link}`); setisDrawerOpen(false) }} style={{ marginTop: '10px' }} key={item.key}>
