@@ -1,10 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import "../authentication.scss"
-import { Button, Checkbox, Col, Form, Input, Modal, Row, Select, Steps, Switch } from 'antd'
-import authOverlay from '../../../assets/wrapper/overlay-auth.svg'
-import brandLogo from '../../../assets/brandAssets/brand-logo-fr-white.svg'
-import googleIcon from '../../../assets/icons/google.svg'
-import faceVectorReg from '../../../assets/wrapper/face-vec-reg.png'
+import { Button, Checkbox, Col, Form, Input, Row, Select, Steps, Switch } from 'antd'
 import ehbIcon from '../../../assets/icons/ehb-companies/ehb-main-dark.svg'
 
 
@@ -14,7 +10,6 @@ import { CheckboxChangeEvent } from 'antd/es/checkbox'
 import { usePostCreateUserMutation } from '../../../store/apis/user'
 
 const { Option } = Select;
-const { Step } = Steps;
 
 const SignUp = () => {
 
@@ -44,7 +39,6 @@ const SignUp = () => {
         }
     };
     const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
     };
 
     const validateConfirmPassword = ({ getFieldValue }: any) => ({

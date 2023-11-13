@@ -1,19 +1,8 @@
 import React from 'react'
 import "./sideBar.scss"
-import { Avatar, Menu } from 'antd';
-import {
-  DashboardOutlined,
-  UserOutlined,
-  SettingOutlined,
-  CloudUploadOutlined,
-  ClockCircleOutlined,
-} from '@ant-design/icons';
-
-import orderIcon from "../../assets/icons/orders.svg"
+import { Menu } from 'antd';
 import newsIcon from "../../assets/icons/news.svg"
 import comingSoonIcon from "../../assets/icons/hourglass-end.svg"
-import packagesIcon from "../../assets/icons/packages.svg"
-import marketingIcon from "../../assets/icons/marketing.svg"
 import analysisIcon from "../../assets/icons/analysis.svg"
 import performanceIcon from "../../assets/icons/speed.svg"
 import gripDotsIcon from "../../assets/icons/grip-dots.svg"

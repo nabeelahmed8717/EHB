@@ -1,29 +1,16 @@
-import { Button, Drawer, Dropdown, Input, MenuProps, Modal, Popover } from 'antd'
-import React, { useEffect, useState } from 'react'
+import { Button, Drawer, Dropdown, MenuProps} from 'antd'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import "./navBar.scss"
-
-import brandLogoW from "../../assets/brandAssets/brand-logo-fr-white.svg"
-import brandLogoB from "../../assets/brandAssets/brand-logo-fr-black.svg"
-import homeIcon from "../../assets/icons/home.svg"
-import bookings from "../../assets/icons/fi-rs-notebook.svg"
-import chat from "../../assets/icons/fi-rr-comment.svg"
-import services from "../../assets/icons/stars.svg"
 import menu from "../../assets/icons/fi-rr-menu-burger.svg"
-import cart from "../../assets/icons/cart.svg"
 
 import ehbCompSwitch from "../../assets/icons/company-switch.svg"
 import document from "../../assets/icons/document.svg"
-import settings from "../../assets/icons/fi-rs-settings.svg"
 import signOut from "../../assets/icons/fi-rs-sign-out.svg"
 
-import orderIcon from "../../assets/icons/orders.svg"
-import productsIcon from "../../assets/icons/products.svg"
 import settingsIcon from "../../assets/icons/settings.svg"
 import packagesIcon from "../../assets/icons/packages.svg"
 import marketingIcon from "../../assets/icons/marketing.svg"
-import verificationIcon from "../../assets/icons/check-circle.svg"
-import analysisIcon from "../../assets/icons/analysis.svg"
 import manageUsersIcon from "../../assets/icons/user-gear.svg"
 
 import Switch from "../../assets/icons/fi-rr-refresh.svg"
@@ -53,8 +40,6 @@ const NavBar = () => {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
     // scrollnav 
-
-    const [isAdvanceSearch, setIsAdvanceSearch] = useState(false);
 
     const navigate = useNavigate()
 

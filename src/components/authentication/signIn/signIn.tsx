@@ -1,9 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import "../authentication.scss"
 import { Button, Col, Form, Input, Row } from 'antd'
-import authOverlay from '../../../assets/wrapper/overlay-auth.svg'
-import brandLogo from '../../../assets/brandAssets/brand-logo-fr-white.svg'
-import googleIcon from '../../../assets/icons/google.svg'
 import { useNavigate } from 'react-router-dom'
 import ehbIcon from '../../../assets/icons/ehb-companies/ehb-main-dark.svg'
 import { usePostLoginUserMutation } from '../../../store/apis/user'
@@ -31,7 +28,7 @@ const SignIn = () => {
             localStorage.setItem('token', jwtToken);
             navigate('/home')
 
-        } catch (error:any) {
+        } catch (error: any) {
             console.log(error);
             error?.data ? setRegError(error?.data) : setRegError('')
         }

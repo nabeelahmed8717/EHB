@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./dashboard.scss"
-import { Avatar, Badge, Button, Col, Image, Modal, Row } from 'antd'
+import { Button, Col, Image, Modal, Row } from 'antd'
 
 import earningsIcon from "../../assets/images/earnings.png"
 import briefcaseIcon from "../../assets/images/briefcase.png"
@@ -15,8 +15,6 @@ import mlmWorld from "../../assets/images/online-world.gif"
 import serviceImage from "../../assets/images/award.png"
 import wrapperWall from "../../assets/wrapper/main-wall.png"
 import wrapperWallRes from "../../assets/wrapper/main-wall-res.png"
-import TimerRef from './timerRefPros/timerRefPros'
-import Timer from './timerRefPros/timerRefPros'
 import TimerComponent from './timerRefPros/timerRefPros'
 
 
@@ -97,8 +95,6 @@ const recentJoinedUserData = [
 ]
 
 const Dashboard = () => {
-  const navigate = useNavigate()
-
   const [isMobile, setIsMobile] = useState(false);
   const [isViewRefillStats, setIsViewRefillStats] = useState(false);
 
@@ -121,7 +117,7 @@ const Dashboard = () => {
         <img src={isMobile ? wrapperWallRes : wrapperWall} alt="" />
       </div>
       <div className="common-head-wrapper-title">
-        <div style={{ display: 'flex', justifyContent: "space-between", flexWrap:"wrap", gap:"15px" }}>
+        <div style={{ display: 'flex', justifyContent: "space-between", flexWrap: "wrap", gap: "15px" }}>
           <h3>Dashboard</h3>
           <div className="SQ-verb">
             SQ Level : <span>3</span> <Button>Upgrade</Button>
@@ -229,7 +225,7 @@ const Dashboard = () => {
             <h4 className='tex-dull'>Refill Service Quality</h4>
             <div className="current-quality dark-card">
               <img src={serviceImage} width={100} alt="" />
-                <Button style={{ width: "100%" }} block className='common-btn-tr' onClick={() => setIsViewRefillStats(true)}>View</Button>
+              <Button style={{ width: "100%" }} block className='common-btn-tr' onClick={() => setIsViewRefillStats(true)}>View</Button>
             </div>
             <div className="notify-sql">
               2 Actions required

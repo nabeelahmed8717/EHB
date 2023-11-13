@@ -44,15 +44,15 @@ const TimerComponent = ({ startProp }: any) => {
     const remainingSeconds = seconds % 60;
 
     return `D:${String(days).padStart(2, '0')} H:${String(hours).padStart(2, '0')} M:${String(minutes).padStart(2, '0')} S:${String(remainingSeconds).padStart(2, '0')}`;
-    
+
   };
 
   return (
     <div>
-      <p style={{ fontSize: "12px", color:"#bababa" }}>Start Date: {startDate.toDateString()}</p>
-      {endDate && <p style={{ fontSize: "12px", color:"#bababa" }}>End Date: {endDate.toDateString()}</p>}
+      <p style={{ fontSize: "12px", color: "#bababa" }}>Start Date: {startDate.toDateString()}</p>
+      {endDate && <p style={{ fontSize: "12px", color: "#bababa" }}>End Date: {endDate.toDateString()}</p>}
       {timeLeft !== null && (
-        <div style={{ fontSize: "14px", marginTop:"10px" }}>Time Left: <p style={{color:"#3498db"}}>{formatTime(timeLeft)}</p></div>
+        <div style={{ fontSize: "14px", marginTop: "10px" }}>Time Left: <p style={{ color: "#3498db" }}>{formatTime(timeLeft)}</p></div>
       )}
     </div>
   );
