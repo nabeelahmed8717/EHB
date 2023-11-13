@@ -1,5 +1,4 @@
 
-import jwt from 'jsonwebtoken';
 import { AES, enc } from "crypto-js";
 export const handleEncryptData = (
   key: string,
