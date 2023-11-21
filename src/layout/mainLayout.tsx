@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 import NavBar from './navBar/navBar'
 
 import "./mainLayout.scss"
 import { Col, Row } from 'antd'
 
-// import React from 'react';
-import { Layout } from 'antd';
 import SideBar from './sideBar/sideBar'
 
 

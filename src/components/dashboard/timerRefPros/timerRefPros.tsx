@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const TimerComponent = ({ startProp }: any) => {
   const [startDate, setStartDate] = useState(new Date(startProp));
@@ -26,10 +26,8 @@ const TimerComponent = ({ startProp }: any) => {
         }
       }
     };
-
     const interval = setInterval(updateRemainingTime, 1000);
     updateRemainingTime();
-
     return () => {
       clearInterval(interval);
     };
@@ -45,7 +43,6 @@ const TimerComponent = ({ startProp }: any) => {
 
     return `D:${String(days).padStart(2, '0')} H:${String(hours).padStart(2, '0')} M:${String(minutes).padStart(2, '0')} S:${String(remainingSeconds).padStart(2, '0')}`;
   };
-
   return (
     <div>
       <p style={{ fontSize: "12px", color: "#bababa" }}>Start Date: {startDate.toDateString()}</p>

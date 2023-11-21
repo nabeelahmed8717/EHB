@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import "../authentication.scss"
-import { Button, Checkbox, Col, Form, Input, Row, Select, Steps, Switch } from 'antd'
+import { Button, Checkbox, Col, Form, Input, Row, Select, Switch } from 'antd'
 import ehbIcon from '../../../assets/icons/ehb-companies/ehb-main-dark.svg'
 
 
@@ -12,9 +12,7 @@ import { usePostCreateUserMutation } from '../../../store/apis/user'
 const { Option } = Select;
 
 const SignUp = () => {
-
     const [postCreateUser, { isLoading }] = usePostCreateUserMutation();
-
     const [isRefferal, setIsRefferal] = useState(false)
     const [regError, setRegError] = useState('')
     const navigate = useNavigate()
@@ -40,7 +38,6 @@ const SignUp = () => {
     };
     const onFinishFailed = (errorInfo: any) => {
     };
-
     const validateConfirmPassword = ({ getFieldValue }: any) => ({
         validator(_: any, value: any) {
             if (!value || getFieldValue('password') === value) {
@@ -48,7 +45,6 @@ const SignUp = () => {
             }
             return Promise.reject(new Error('The two passwords do not match'));
         },
-
     });
     const validateStrongPassword = (_: any, value: any) => {
         // Use a regular expression to check for a strong password (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
@@ -57,7 +53,6 @@ const SignUp = () => {
         if (!value || strongPasswordRegex.test(value)) {
             return Promise.resolve();
         }
-
         return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
     };
     const onChange = (checked: boolean) => {
@@ -65,12 +60,8 @@ const SignUp = () => {
     };
 
     const onTermsChange = (e: CheckboxChangeEvent) => {
-        console.log(`checked = ${e.target.checked}`);
     };
     const phoneRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/;
-
-
-
 
     return (
         <div className='auth-main-wrapper tex-w'>

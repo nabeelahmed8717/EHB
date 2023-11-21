@@ -17,7 +17,6 @@ const authSlice = createSlice({
     },
     setResetPasswordSuccess(state, action) {
       state.resetSuccess = action.payload;
-      console.log( state.resetSuccess );
     },
   },
 });

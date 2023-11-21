@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import "./dashboard.scss"
 import { Button, Col, Image, Modal, Row } from 'antd'
 

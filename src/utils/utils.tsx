@@ -14,7 +14,6 @@ export const handleEncryptData = (
 
 export const getDecryptedObject = (key: string, secretKey: string) => {
   const ciphertext = localStorage.getItem(key);
-  console.log("ciphertext", ciphertext)
   if (ciphertext) {
     const bytes = AES.decrypt(ciphertext.toString(), secretKey);
     const decryptedData = bytes.toString(enc.Utf8);

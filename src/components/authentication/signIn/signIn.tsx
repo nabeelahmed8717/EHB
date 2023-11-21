@@ -6,40 +6,36 @@ import ehbIcon from '../../../assets/icons/ehb-companies/ehb-main-dark.svg'
 import { usePostLoginUserMutation } from '../../../store/apis/user'
 
 const SignIn = () => {
-
     const [postLoginUser, { isLoading }] = usePostLoginUserMutation();
-
     const [regError, setRegError] = useState('')
-
     const navigate = useNavigate()
     const onFinish = async (values: any) => {
-
         setRegError('')
-
         const payload = {
             email: values.email,
             password: values.password,
         };
-
         try {
             const response: any = await postLoginUser({ payload }).unwrap();
             const jwtToken = response.token; // Assuming you can access the token from the response
-            console.log("response", response)
             localStorage.setItem('token', jwtToken);
-            navigate('/home')
 
+            // document.cookie = "myCookie=myValue; domain=.ehb.com.co; path=/;";
+            // const expirationTime = new Date();
+            // expirationTime.setTime(expirationTime.getTime() + 60 * 1000); 
+            // const expires = expirationTime.toUTCString();
+            // document.cookie = `me=${jwtToken}; expires=${expires}; path=/;`;
+            document.cookie = `me=${jwtToken}; domain=.ehb-live.com; path=/;`;
+
+            navigate('/home')
         } catch (error: any) {
             console.log(error);
             error?.data ? setRegError(error?.data) : setRegError('')
         }
     };
-
-
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
-
-
     return (
         <div className='auth-main-wrapper tex-w'>
             <div className='header-alg'>
@@ -52,7 +48,6 @@ const SignIn = () => {
                     initialValues={{ remember: true }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
-                    // autoComplete="off"
                     layout="vertical">
                     <Row gutter={[20, 0]}>
                         <Col xs={24} sm={24} md={24} lg={24}>

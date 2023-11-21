@@ -1,17 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import userIcon from "../../../assets/raw/userIconOne.svg"
 import verified from "../../../assets/icons/verified.svg"
 
-
-// {
-//     "_id": "6550ac277033820018292e29",
-//     "email": "newreop@gmail.com",
-//     "firstName": "test new rep",
-//     "lastName": "repo",
-//     "referralCode": "AGGSTRTBD",
-//     "phoneNumber": "0000000000",
-//     "iat": 1699786534
-// }
 
 const UserProfileCard = ({isMobile}:any) => {
 
@@ -29,9 +19,8 @@ const UserProfileCard = ({isMobile}:any) => {
             const decoded = decodeToken(token);
             setDecodedToken(decoded);
         }
-    }, []);
+    }, [token]);
 
-    console.log("decodedToken", decodedToken)
     return (
         <div className='user-profile-lower-widet-card' style={{width:`${isMobile ? "100%" : "300px"}`}}>
             <div className="d-flex align-center" style={{ gap: '10px' }}>

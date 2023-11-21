@@ -1,10 +1,7 @@
 import { FC, lazy, LazyExoticComponent, Suspense } from "react";
 import { Navigate } from "react-router-dom";
-import { Spin } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
 import loadingGif from "./assets/loading/loadEhb.gif"
 
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
 const Loadable = (Component: LazyExoticComponent<FC>) => (props: any) =>
 (
@@ -34,6 +31,15 @@ const LandingPage = Loadable(lazy(() => import("./pages/dashboard")));
 const SignIn = Loadable(lazy(() => import("./pages/signIn")));
 const SignUp = Loadable(lazy(() => import("./pages/signUp")));
 
+// const getCookie = (name:any) => {
+//   const cookieValue = document.cookie
+//     .split('; ')
+//     .find(row => row.startsWith(name))
+//     ?.split('=')[1];
+//   return cookieValue;
+// };
+// const cookieVal = getCookie('me')
+
 const isTokenAvailable = () => {
   const token = localStorage.getItem('token');
   return token !== null;
@@ -48,7 +54,7 @@ const PrivateRoute = ({ element, path }: any) => {
 };
 
 export const routes: any = [
-  { path: "/", element: <Navigate to="home" /> },
+  { path: "/", element: <Navigate to={isTokenAvailable() ? 'home' : 'sign-in'} /> },
   {
     path: "sign-in",
     element: <SignIn />,
