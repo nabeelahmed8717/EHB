@@ -12,7 +12,7 @@ const SignIn = () => {
     const onFinish = async (values: any) => {
         setRegError('')
         const payload = {
-            email: values.email,
+            identifier: values.email,
             password: values.password,
         };
         try {
@@ -89,6 +89,8 @@ const SignIn = () => {
                 <p>About</p>
                 <p className='ex-w'><em>Contact EHB support</em></p>
             </div>
+
+            <div style={{ position: "absolute", bottom: "10px", left: "10px", color: "rgb(255 255 255 / 19%)", fontSize:"12px" }}>v1.0.1</div>
         </div>
     )
 }

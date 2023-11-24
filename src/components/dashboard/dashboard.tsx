@@ -169,7 +169,7 @@ const Dashboard = () => {
       </Row>
 
       <Row style={{ marginTop: "20px" }} gutter={[20, 20]}>
-        <Col xs={24} sm={24} md={6} lg={12}>
+        <Col xs={24} sm={24} md={24} lg={12}>
           <div className="ehb-departments">
             <h4 className='tex-dull'>EHB Departments</h4>
             {
@@ -187,7 +187,7 @@ const Dashboard = () => {
             }
           </div>
         </Col>
-        <Col xs={24} sm={24} md={6} lg={12}>
+        <Col xs={24} sm={24} md={24} lg={12}>
           <div className='Adver-affilate-program'>
             <div className="flex-wrp">
               <img src={mlmWorld} alt="" />

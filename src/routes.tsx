@@ -31,15 +31,6 @@ const LandingPage = Loadable(lazy(() => import("./pages/dashboard")));
 const SignIn = Loadable(lazy(() => import("./pages/signIn")));
 const SignUp = Loadable(lazy(() => import("./pages/signUp")));
 
-// const getCookie = (name:any) => {
-//   const cookieValue = document.cookie
-//     .split('; ')
-//     .find(row => row.startsWith(name))
-//     ?.split('=')[1];
-//   return cookieValue;
-// };
-// const cookieVal = getCookie('me')
-
 const isTokenAvailable = () => {
   const token = localStorage.getItem('token');
   return token !== null;
@@ -74,34 +65,3 @@ export const routes: any = [
     ],
   },
 ];
-
-
-// export const routes: any = [
-//   { path: "/", element: <Navigate to="home" /> },
-//   {
-//     path: "sign-in",
-//     element: <SignIn />,
-//   },
-//   {
-//     path: "sign-up",
-//     element: <SignUp />,
-//   },
-//   {
-//     path: "/",
-//     element: <MainLayout />,
-//     children: [
-//       {
-//         path: "home",
-//         element: <LandingPage/>,
-//       },
-//       {
-//         path: "profile",
-//         element: <Profile/>,
-//       },
-//       {
-//         path: "news",
-//         element: <News/>,
-//       },
-//     ],
-//   },
-// ];

@@ -21,6 +21,7 @@ const SignUp = () => {
         const payload = {
             "firstName": values.firstName,
             "lastName": values.lastName,
+            "userName": values.userName,
             "email": values.email,
             "country": values.country,
             "phoneNumber": values.phone,
@@ -91,6 +92,15 @@ const SignUp = () => {
                             <Form.Item
                                 label="Last Name"
                                 name="lastName"
+                                rules={[{ required: true, message: 'Required field' }]}
+                            >
+                                <Input placeholder="Type here" rootClassName='styled-input' />
+                            </Form.Item>
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12}>
+                            <Form.Item
+                                label="User Name"
+                                name="userName"
                                 rules={[{ required: true, message: 'Required field' }]}
                             >
                                 <Input placeholder="Type here" rootClassName='styled-input' />
