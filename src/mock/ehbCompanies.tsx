@@ -12,11 +12,13 @@ export const ehbCompaniesData =[
         logo: goSellrIcon,
         title:"GoSellr",
         disp:"E-commerce",
+        comingSoon:true
     },
     {
         logo: pssIcon,
         title:"PSS",
         disp:"Personal Security Service",
+        comingSoon:true
     },
     {
         logo: edrIcon,
@@ -36,7 +38,6 @@ export const ehbCompaniesData =[
         disp:"Easy management Office",
         comingSoon:true
     },
-    
     {
         logo: ehbDarkIcon,
         title:"EHB Tube",

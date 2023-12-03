@@ -95,21 +95,20 @@ body {
       margin-top: 10px;
     }
   }
-
   .lb-docs-nav {
     color: #2582ff;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 20px;
     font-size: 14px;
     margin-top: 10vh;
     margin-bottom: 40px;
-
+    padding: 0px 20px;
     p {
       cursor: pointer;
     }
-
     .ex-w {
       color: #a1a1a1;
     }
@@ -126,6 +125,9 @@ body {
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.38);
     border: 1px solid #5c5c5c42;
 
+    .form-instruction{
+      color: red;
+    }
 
     @media (max-width: 800px) {
       width: 60%;
@@ -294,5 +296,38 @@ body {
 
 .refferal-switch {
   background-color: #1c243a;
+}
 
+.main-welcome-screen{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  gap:20px;
+
+  .uname{
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  .tag{
+    animation: fadeIns 1s ease-in-out forwards;
+  }
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIns {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

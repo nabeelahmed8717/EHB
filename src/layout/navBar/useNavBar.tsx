@@ -6,7 +6,7 @@ const useNavBar = () => {
     const handleSignOut = () => {
         try {
             localStorage.clear();
-            document.cookie = `me=; domain=.ehb-live.com; path=/;`;
+            document.cookie = `me=; domain=.ehb.com.co; path=/;`;
             navigate('/sign-in');
         } catch (error) {
             console.error('Error during sign out:', error);

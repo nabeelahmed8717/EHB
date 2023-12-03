@@ -14,7 +14,9 @@ import mlmWorld from "../../assets/images/online-world.gif"
 import serviceImage from "../../assets/images/award.png"
 import wrapperWall from "../../assets/wrapper/main-wall.png"
 import wrapperWallRes from "../../assets/wrapper/main-wall-res.png"
+import noData from "../../assets/images/no-data.png"
 import TimerComponent from './timerRefPros/timerRefPros'
+
 
 
 const ehbDapartmentsData = [
@@ -55,23 +57,23 @@ const serviceStatsData = [
   },
 ]
 
-const quickLinksData = [
-  {
-    label: "gosellr",
-    link: "",
-  },
-  {
-    label: "selling dashboard - gosellr",
-    link: "",
-  },
-  {
-    label: "pss dashboard",
-    link: "",
-  },
-  {
-    label: "riders dashboard",
-    link: "",
-  },
+const quickLinksData: any = [
+  // {
+  //   label: "gosellr",
+  //   link: "",
+  // },
+  // {
+  //   label: "selling dashboard - gosellr",
+  //   link: "",
+  // },
+  // {
+  //   label: "pss dashboard",
+  //   link: "",
+  // },
+  // {
+  //   label: "riders dashboard",
+  //   link: "",
+  // },
 ]
 
 const recentJoinedUserData = [
@@ -119,7 +121,7 @@ const Dashboard = () => {
         <div style={{ display: 'flex', justifyContent: "space-between", flexWrap: "wrap", gap: "15px" }}>
           <h3>Dashboard</h3>
           <div className="SQ-verb">
-            SQ Level : <span>3</span> <Button>Upgrade</Button>
+            SQ Level : <span>Basic</span> <Button>Upgrade</Button>
           </div>
         </div>
       </div>
@@ -132,7 +134,7 @@ const Dashboard = () => {
               <img src={earningsIcon} width={15} height={15} alt="" />
             </div>
             <h5 className='fig-card-head'>Account Balance</h5>
-            <h2 className='fig-card-num'>$ <span>2,763.82</span></h2>
+            <h2 className='fig-card-num'>$ <span>00</span></h2>
           </div>
         </Col>
         <Col xs={12} sm={12} md={12} lg={6}>
@@ -163,7 +165,7 @@ const Dashboard = () => {
               <img src={serviceIcon} width={15} height={15} alt="" />
             </div>
             <h5 className='fig-card-head'>Active Services</h5>
-            <h2 className='fig-card-num'>5/33</h2>
+            <h2 className='fig-card-num'>1/33</h2>
           </div>
         </Col>
       </Row>
@@ -196,7 +198,7 @@ const Dashboard = () => {
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum iusto a magni, possimus nisi explicabo, voluptate esse accusantium sint dicta numquam repudiandae delectus quibusdam similique.</p>
               </div>
             </div>
-            <Button className="common-btn">Join Now</Button>
+            <Button className="common-btn" href='https://ehb.com.co/affiliate/dashboard' target="_blank">Join Now</Button>
           </div>
         </Col>
       </Row>
@@ -207,14 +209,23 @@ const Dashboard = () => {
             <h4 className='tex-dull'>Quick Links <span style={{ fontSize: "12px", fontWeight: "500" }}>(You most visited)</span></h4>
             <div className="wrapper-quick-links scroll-s">
               {
-                quickLinksData.map((item: any) => (
-                  <div className="box-quick-links dark-card">
-                    <p><em>{item.label}</em></p>
-                    <a href={item.link}>
-                      <span>Navigate</span>
-                    </a>
+                quickLinksData.length ?
+
+                  (quickLinksData.map((item: any) => (
+                    <div className="box-quick-links dark-card">
+                      <p><em>{item.label}</em></p>
+                      <a href={item.link}>
+                        <span>Navigate</span>
+                      </a>
+                    </div>
+                  )))
+                  :
+                  <div style={{display:"flex", flexDirection:"column", gap:"10px", height:"100%", alignItems:"center", justifyContent:"center"}}>
+                    <img src={noData} width={40} height={40} style={{opacity:"0.5"}} />
+                    <p style={{ fontSize: "12px", fontWeight: "600", color: "rgb(255 255 255 / 34%)" }}>No Links Found</p>
                   </div>
-                ))
+
+
               }
             </div>
           </div>
@@ -224,10 +235,10 @@ const Dashboard = () => {
             <h4 className='tex-dull'>Refill Service Quality</h4>
             <div className="current-quality dark-card">
               <img src={serviceImage} width={100} alt="" />
-              <Button style={{ width: "100%" }} block className='common-btn-tr' onClick={() => setIsViewRefillStats(true)}>View</Button>
+              <Button style={{ width: "100%", backgroundColor:"#ffffff0f !important", color:"#fff" }} block className='common-btn-tr' onClick={() => setIsViewRefillStats(true)} disabled>View</Button>
             </div>
             <div className="notify-sql">
-              2 Actions required
+              0 Actions required
             </div>
           </div>
         </Col>

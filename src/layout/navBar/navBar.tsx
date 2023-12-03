@@ -10,8 +10,6 @@ import signOut from "../../assets/icons/fi-rs-sign-out.svg"
 
 import settingsIcon from "../../assets/icons/settings.svg"
 import packagesIcon from "../../assets/icons/packages.svg"
-import marketingIcon from "../../assets/icons/marketing.svg"
-import manageUsersIcon from "../../assets/icons/user-gear.svg"
 
 import Switch from "../../assets/icons/fi-rr-refresh.svg"
 import notificationIcon from "../../assets/icons/notification.svg"
@@ -21,6 +19,7 @@ import { CloseOutlined } from '@ant-design/icons';
 import UserProfileCard from './userProfileCard/userProfileCard';
 import { ehbCompaniesData } from '../../mock/ehbCompanies'
 import useNavBar from './useNavBar'
+import userIcon from "../../assets/raw/user-default.png"
 
 const NavBar = () => {
 
@@ -46,14 +45,14 @@ const NavBar = () => {
                 <UserProfileCard />
             ),
         },
-        {
-            key: '2',
-            label: (
-                <div className="drp-items-nav" style={{ marginTop: '10px' }}>
-                    <img src={document} alt="" /> <p>Upload KYC</p>
-                </div>
-            ),
-        },
+        // {
+        //     key: '2',
+        //     label: (
+        //         <div className="drp-items-nav" style={{ marginTop: '10px' }}>
+        //             <img src={document} alt="" /> <p>Upload KYC</p>
+        //         </div>
+        //     ),
+        // },
         {
             key: '3',
             label: (
@@ -76,46 +75,23 @@ const NavBar = () => {
 
         {
             key: '2',
-            label: 'Manage Profile',
+            label: 'Dashboard',
             icon: settingsIcon,
-            link: './manage-profile'
+            link: './home'
         },
         {
             key: '2',
-            label: 'Marketing',
-            icon: marketingIcon,
-            link: './marketing'
+            label: 'Manage Profile',
+            icon: settingsIcon,
+            link: './home'
         },
         {
             key: '6',
             label: "Packages",
             icon: packagesIcon,
-            link: './packages'
-        },
-        {
-            key: '9',
-            label: "Manage Users",
-            icon: manageUsersIcon,
-            link: './manage-users'
-        },
-        {
-            key: '3',
-            label: 'Switch Dashboards',
-            icon: Switch,
             link: './home'
         },
-        {
-            key: '1',
-            label: 'Upload KYC',
-            icon: document,
-            link: './home'
-        },
-        {
-            key: '5',
-            label: 'Sign out',
-            icon: signOut,
-            link: './home'
-        },
+
     ]
 
     useEffect(() => {
@@ -170,11 +146,11 @@ const NavBar = () => {
 
                 {!isMobile &&
                     <>
-                        <Button className="rounded-buttons-nav" onClick={() => navigate('./cart')}><img src={notificationIcon} width={20} height={20} alt="" /><div className='sp-only-chat'>2</div></Button>
+                        {/* <Button className="rounded-buttons-nav" onClick={() => navigate('./cart')}><img src={notificationIcon} width={20} height={20} alt="" /><div className='sp-only-chat'>2</div></Button> */}
                         <div className="user-profile-wrapper">
                             <Dropdown menu={{ items }} placement="bottomRight" arrow overlayClassName='pro-drp'>
                                 <div className="user-profile">
-                                    <div className="user-img-wrapper"><img src="https://cdn.icon-icons.com/icons2/2630/PNG/512/avatar_man_beard_brown_hair_boy_people_icon_159121.png" alt="" /></div>
+                                    <div className="user-img-wrapper"><img src={userIcon} alt="" /></div>
                                 </div>
                             </Dropdown>
                         </div>
@@ -200,6 +176,9 @@ const NavBar = () => {
                             </div>
                         ))
                     }
+                    <div className="drp-items-nav" onClick={handleSignOut} style={{ marginTop: '10px' }}>
+                        <img src={signOut} alt="" /> <p>Sign out</p>
+                    </div>
 
                 </Drawer>
             </div>

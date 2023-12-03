@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import userIcon from "../../../assets/raw/userIconOne.svg"
+import userIcon from "../../../assets/raw/user-default.png"
 import verified from "../../../assets/icons/verified.svg"
 
 

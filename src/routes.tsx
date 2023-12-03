@@ -30,6 +30,7 @@ const MainLayout = Loadable(lazy(() => import("./layout/mainLayout")));
 const LandingPage = Loadable(lazy(() => import("./pages/dashboard")));
 const SignIn = Loadable(lazy(() => import("./pages/signIn")));
 const SignUp = Loadable(lazy(() => import("./pages/signUp")));
+const RestPassword = Loadable(lazy(() => import("./pages/resetPassword")));
 
 const isTokenAvailable = () => {
   const token = localStorage.getItem('token');
@@ -51,8 +52,20 @@ export const routes: any = [
     element: <SignIn />,
   },
   {
+    path: "sign-in/affilate",
+    element: <SignIn/>,
+  },
+  {
     path: "sign-up",
     element: <SignUp />,
+  },
+  {
+    path: "sign-up/:id",
+    element: <SignUp />,
+  },
+  {
+    path: "reset-password",
+    element: <RestPassword />,
   },
   {
     path: "/",

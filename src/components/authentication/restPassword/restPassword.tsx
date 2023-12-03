@@ -1,18 +1,12 @@
 import { useState } from 'react'
 import "../authentication.scss"
 import { Button, Col, Form, Input, Row } from 'antd'
-import { useLocation, useNavigate } from 'react-router-dom'
 import ehbIcon from '../../../assets/icons/ehb-companies/ehb-main-dark.svg'
 import { usePostLoginUserMutation } from '../../../store/apis/user'
 
-const SignIn = () => {
+const RestPassword = () => {
     const [postLoginUser, { isLoading }] = usePostLoginUserMutation();
     const [regError, setRegError] = useState('')
-    const navigate = useNavigate()
-
-    const location = useLocation();
-
-    const currentRoute = location.pathname;
     const onFinish = async (values: any) => {
         setRegError('')
         const payload = {
@@ -21,18 +15,7 @@ const SignIn = () => {
         };
         try {
             const response: any = await postLoginUser({ payload }).unwrap();
-            const jwtToken = response.token; // Assuming you can access the token from the response
-            localStorage.setItem('token', jwtToken);
-
-            
-            document.cookie = `me=${jwtToken}; domain=.ehb.com.co; path=/;`;
-
-            navigate('/home')
-            if (currentRoute === '/sign-in/affilate') {
-                window.open('https://ehb.com.co/affiliate', '_blank');
-            } else {
-                navigate('/home');
-            }
+            console.log("response", response)
         } catch (error: any) {
             console.log(error);
             error?.data ? setRegError(error?.data) : setRegError('')
@@ -41,11 +24,30 @@ const SignIn = () => {
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
+
+    const validateConfirmPassword = ({ getFieldValue }: any) => ({
+        validator(_: any, value: any) {
+            if (!value || getFieldValue('password') === value) {
+                return Promise.resolve();
+            }
+            return Promise.reject(new Error('The two passwords do not match'));
+        },
+    });
+    const validateStrongPassword = (_: any, value: any) => {
+        // Use a regular expression to check for a strong password (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
+        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (!value || strongPasswordRegex.test(value)) {
+            return Promise.resolve();
+        }
+        return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
+    };
+
     return (
         <div className='auth-main-wrapper tex-w'>
             <div className='header-alg'>
                 <img src={ehbIcon} width={70} alt="" />
-                <p>Sign In to <strong>EHB</strong> </p>
+                <p>Reset Password</p>
             </div>
             <div className="wrapper-auth">
                 <Form
@@ -57,25 +59,35 @@ const SignIn = () => {
                     <Row gutter={[20, 0]}>
                         <Col xs={24} sm={24} md={24} lg={24}>
                             <Form.Item
-                                label="Email"
-                                name="email"
-                                rules={[{ required: true, message: 'Required field' }]}
-                            >
-                                <Input placeholder="Type here" rootClassName='styled-input' autoComplete='off' />
-                            </Form.Item>
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={24}>
-                            <Form.Item
-                                label="Password"
                                 name="password"
+                                label="New Password"
                                 rules={[
                                     {
                                         required: true,
                                         message: 'Please enter your password!',
                                     },
+                                    {
+                                        validator: validateStrongPassword,
+                                    },
                                 ]}
                             >
                                 <Input.Password rootClassName='styled-input' placeholder="Enter your password" />
+                            </Form.Item>
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={24}>
+                            <Form.Item
+                                name="confirmPassword"
+                                label="Confirm Password"
+                                dependencies={['password']}
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please confirm your password!',
+                                    },
+                                    ({ getFieldValue }) => validateConfirmPassword({ getFieldValue }),
+                                ]}
+                            >
+                                <Input.Password rootClassName='styled-input' placeholder="Confirm your password" />
                             </Form.Item>
                         </Col>
                     </Row>
@@ -83,9 +95,8 @@ const SignIn = () => {
                         {regError}
                     </div>}
                     <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-                        <Button htmlType='submit' loading={isLoading} className='common-btn-dull' style={{ width: "100%", marginTop: "30px" }}>Login</Button>
+                        <Button htmlType='submit' loading={isLoading} className='common-btn-dull' style={{ width: "100%", marginTop: "30px" }}>Change Password</Button>
                     </div>
-                    <p className='bottom-res'>Didn't have an account ? <span onClick={() => navigate('/sign-up')}>Register</span></p>
                 </Form>
             </div>
             <div className='lb-docs-nav'>
@@ -95,9 +106,9 @@ const SignIn = () => {
                 <p className='ex-w'><em>Contact EHB support</em></p>
             </div>
 
-            <div style={{ position: "absolute", bottom: "10px", left: "10px", color: "rgb(255 255 255 / 19%)", fontSize:"12px" }}>v1.0.1</div>
+            <div style={{ position: "absolute", bottom: "10px", left: "10px", color: "rgb(255 255 255 / 19%)", fontSize: "12px" }}>v1.0.1</div>
         </div>
     )
 }
 
-export default SignIn
+export default RestPassword
