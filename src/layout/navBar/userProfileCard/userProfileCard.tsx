@@ -29,7 +29,8 @@ const UserProfileCard = ({isMobile}:any) => {
                 </div>
                 <div className="d-flex flex-column">
                     <h2 className='fs-14 fw-600'>{decodedToken?.firstName} {decodedToken?.lastName}</h2>
-                    <p className='fs-12 d-flex align-center' style={{ gap: '5px' }}>Verified <img src={verified} alt="" width={15} height={15} /></p>
+                    {/* <p className='fs-12 d-flex align-center' style={{ gap: '5px' }}>Verified <img src={verified} alt="" width={15} height={15} /></p> */}
+                    <p className='fs-12 d-flex align-center' style={{ gap: '5px' }}>Non Verified </p>
                 </div>
             </div>
         </div>

@@ -64,7 +64,7 @@ export const routes: any = [
     element: <SignUp />,
   },
   {
-    path: "reset-password",
+    path: "reset-password/:token",
     element: <RestPassword />,
   },
   {

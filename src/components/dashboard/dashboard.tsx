@@ -15,6 +15,7 @@ import serviceImage from "../../assets/images/award.png"
 import wrapperWall from "../../assets/wrapper/main-wall.png"
 import wrapperWallRes from "../../assets/wrapper/main-wall-res.png"
 import noData from "../../assets/images/no-data.png"
+import affilateIcon from "../../assets/icons/affilate.png"
 import TimerComponent from './timerRefPros/timerRefPros'
 
 
@@ -114,6 +115,19 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-main-wrapper tex-w" >
+
+
+      <div className='affilate-lg'>
+        <img src={affilateIcon} alt="" className='img' />
+        <div className='ct-lg'>
+          <p>Login to EHB Affiliate</p>
+          <a href="https://ehb.com.co/affiliate/dashboard">
+            <Button className='common-btn'>Login now</Button>
+          </a>
+
+        </div>
+      </div>
+
       <div className="wrapper-wall">
         <img src={isMobile ? wrapperWallRes : wrapperWall} alt="" />
       </div>
@@ -121,7 +135,7 @@ const Dashboard = () => {
         <div style={{ display: 'flex', justifyContent: "space-between", flexWrap: "wrap", gap: "15px" }}>
           <h3>Dashboard</h3>
           <div className="SQ-verb">
-            SQ Level : <span>Basic</span> <Button>Upgrade</Button>
+            SQ Level : <span style={{ color: "#e74c3c", fontWeight: "600" }}>Free</span> <Button>Upgrade</Button>
           </div>
         </div>
       </div>
@@ -198,7 +212,7 @@ const Dashboard = () => {
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum iusto a magni, possimus nisi explicabo, voluptate esse accusantium sint dicta numquam repudiandae delectus quibusdam similique.</p>
               </div>
             </div>
-            <Button className="common-btn" href='https://ehb.com.co/affiliate/dashboard' target="_blank">Join Now</Button>
+            <Button className="common-btn" href='https://ehb.com.co/affiliate/dashboard'>Join Now</Button>
           </div>
         </Col>
       </Row>
@@ -220,8 +234,8 @@ const Dashboard = () => {
                     </div>
                   )))
                   :
-                  <div style={{display:"flex", flexDirection:"column", gap:"10px", height:"100%", alignItems:"center", justifyContent:"center"}}>
-                    <img src={noData} width={40} height={40} style={{opacity:"0.5"}} />
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px", height: "100%", alignItems: "center", justifyContent: "center" }}>
+                    <img src={noData} width={40} height={40} style={{ opacity: "0.5" }} />
                     <p style={{ fontSize: "12px", fontWeight: "600", color: "rgb(255 255 255 / 34%)" }}>No Links Found</p>
                   </div>
 
@@ -235,7 +249,7 @@ const Dashboard = () => {
             <h4 className='tex-dull'>Refill Service Quality</h4>
             <div className="current-quality dark-card">
               <img src={serviceImage} width={100} alt="" />
-              <Button style={{ width: "100%", backgroundColor:"#ffffff0f !important", color:"#fff" }} block className='common-btn-tr' onClick={() => setIsViewRefillStats(true)} disabled>View</Button>
+              <Button style={{ width: "100%", backgroundColor: "#ffffff0f !important", color: "#fff" }} block className='common-btn-tr' onClick={() => setIsViewRefillStats(true)} disabled>View</Button>
             </div>
             <div className="notify-sql">
               0 Actions required

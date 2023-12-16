@@ -106,6 +106,9 @@ body {
     margin-top: 10vh;
     margin-bottom: 40px;
     padding: 0px 20px;
+    a{
+      color: #2582ff;
+    }
     p {
       cursor: pointer;
     }
@@ -246,17 +249,17 @@ body {
     width: 100%;
   }
 
-  .error-message-footer{
-    background-color: #c0392b1f;
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #c0392b9c;
-    border-radius: 10px;
-    margin-top: 10px;
-    color: #c0392b;
-  }
+  
 }
-
+.error-message-footer{
+  background-color: #c0392b1f;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #c0392b9c;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: #c0392b;
+}
 .styled-input {
   width: 100%;
   height: 45px;
@@ -313,6 +316,58 @@ body {
     animation: fadeIns 1s ease-in-out forwards;
   }
 
+}
+
+.ant-modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  height: 100%;
+  background-color: rgb(0 0 0 / 69%);
+  backdrop-filter: blur(2px);
+}
+
+.reset-password-modal{
+  .ant-modal-content{
+    background-color: #050b1b;
+  }
+  .ant-modal-title{
+    background-color: #050b1b;
+    color: #fff;
+  }
+
+
+  .ant-form-item .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    display: none;
+  }
+
+  .ant-form-item .ant-form-item-label {
+    padding-bottom: 2px !important;
+    font-weight: 600;
+
+    label {
+      color: #999 !important;
+    }
+  }
+
+  .anticon svg {
+    display: inline-block;
+    color: aliceblue;
+  }
+
+  .end-navigator {
+    color: #727272;
+    width: auto;
+
+    span {
+      color: #000;
+      font-weight: 600;
+
+      &:hover {
+        color: #2a56b8;
+      }
+    }
+  }
 }
 
 @keyframes fadeIn {

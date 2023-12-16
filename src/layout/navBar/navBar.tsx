@@ -57,7 +57,7 @@ const NavBar = () => {
             key: '3',
             label: (
                 <div className="drp-items-nav">
-                    <img src={Switch} alt="" /> <p>Switch Dashboards</p>
+                    <img src={Switch} alt="" /> <a href="https://ehb.com.co/affiliate/dashboard"> <p style={{color:"#000"}}>Switch Dashboards</p></a>
                 </div>
             ),
         },

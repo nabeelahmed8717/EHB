@@ -1,24 +1,35 @@
 import { useState } from 'react'
 import "../authentication.scss"
-import { Button, Col, Form, Input, Row } from 'antd'
+import { Alert, Button, Col, Form, Input, Row, message } from 'antd'
 import ehbIcon from '../../../assets/icons/ehb-companies/ehb-main-dark.svg'
-import { usePostLoginUserMutation } from '../../../store/apis/user'
+import { usePostResetPasswordMutation } from '../../../store/apis/user'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const RestPassword = () => {
-    const [postLoginUser, { isLoading }] = usePostLoginUserMutation();
+    const navigate = useNavigate()
+    const [messageApi, contextHolder] = message.useMessage();
+    const [postResetPassword, { isLoading }] = usePostResetPasswordMutation();
     const [regError, setRegError] = useState('')
+    const { token } = useParams();
     const onFinish = async (values: any) => {
         setRegError('')
         const payload = {
-            identifier: values.email,
             password: values.password,
         };
         try {
-            const response: any = await postLoginUser({ payload }).unwrap();
-            console.log("response", response)
+            const response: any = await postResetPassword({ payload, token }).unwrap();
+            
         } catch (error: any) {
             console.log(error);
-            error?.data ? setRegError(error?.data) : setRegError('')
+            error?.data ? setRegError(error?.data === 'Password reset successfully' ? '' : error?.data) : setRegError('')
+            if (error?.data === 'Password reset successfully') {
+                messageApi.success('Password reset successfully');
+                const timeoutId = setTimeout(() => {
+                    navigate('/sign-in');
+                  }, 2000);
+                  return () => clearTimeout(timeoutId);
+               
+            }
         }
     };
     const onFinishFailed = (errorInfo: any) => {
@@ -33,17 +44,29 @@ const RestPassword = () => {
             return Promise.reject(new Error('The two passwords do not match'));
         },
     });
-    const validateStrongPassword = (_: any, value: any) => {
-        // Use a regular expression to check for a strong password (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
-        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // const validateStrongPassword = (_: any, value: any) => {
+    //     // Use a regular expression to check for a strong password (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
+    //     const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-        if (!value || strongPasswordRegex.test(value)) {
+    //     if (!value || strongPasswordRegex.test(value)) {
+    //         return Promise.resolve();
+    //     }
+    //     return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
+    // };
+    const validateStrongPassword = (_: any, value: any) => {
+        // Use a regular expression to check for a less strict password (minimum 8 characters with at least one uppercase letter)
+        const lessStrictPasswordRegex = /^(?=.*[A-Z]).{8,}$/;
+
+        if (!value || lessStrictPasswordRegex.test(value)) {
             return Promise.resolve();
         }
-        return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
+
+        return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter.'));
     };
 
     return (
+        <>
+       {contextHolder}
         <div className='auth-main-wrapper tex-w'>
             <div className='header-alg'>
                 <img src={ehbIcon} width={70} alt="" />
@@ -97,6 +120,7 @@ const RestPassword = () => {
                     <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
                         <Button htmlType='submit' loading={isLoading} className='common-btn-dull' style={{ width: "100%", marginTop: "30px" }}>Change Password</Button>
                     </div>
+                    <p className='bottom-res'>Sign in again ? <span onClick={() => navigate('/sign-in')}>Sign in</span></p>
                 </Form>
             </div>
             <div className='lb-docs-nav'>
@@ -108,6 +132,7 @@ const RestPassword = () => {
 
             <div style={{ position: "absolute", bottom: "10px", left: "10px", color: "rgb(255 255 255 / 19%)", fontSize: "12px" }}>v1.0.1</div>
         </div>
+        </>
     )
 }
 

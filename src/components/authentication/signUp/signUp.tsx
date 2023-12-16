@@ -39,7 +39,7 @@ const SignUp = () => {
 
     function generateCustomId() {
         const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let customId:any = '';
+        let customId: any = '';
 
         for (let i = 0; i < 9; i++) {
             const randomIndex = Math.floor(Math.random() * characters.length);
@@ -65,7 +65,6 @@ const SignUp = () => {
         }
         try {
             const response: any = await postCreateUser({ payload }).unwrap();
-
             if (response) {
                 setIsWelcome(true)
                 setUserInfo(response)
@@ -73,7 +72,6 @@ const SignUp = () => {
         } catch (error: any) {
             console.log(error)
             error?.data ? setRegError(error?.data) : setRegError('')
-
         }
     };
     const onFinishFailed = (errorInfo: any) => {
@@ -86,14 +84,24 @@ const SignUp = () => {
             return Promise.reject(new Error('The two passwords do not match'));
         },
     });
-    const validateStrongPassword = (_: any, value: any) => {
-        // Use a regular expression to check for a strong password (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
-        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // const validateStrongPassword = (_: any, value: any) => {
+    //     // Use a regular expression to check for a strong password (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
+    //     const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-        if (!value || strongPasswordRegex.test(value)) {
+    //     if (!value || strongPasswordRegex.test(value)) {
+    //         return Promise.resolve();
+    //     }
+    //     return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
+    // };
+    const validateStrongPassword = (_: any, value: any) => {
+        // Use a regular expression to check for a less strict password (minimum 8 characters with at least one uppercase letter)
+        const lessStrictPasswordRegex = /^(?=.*[A-Z]).{8,}$/;
+
+        if (!value || lessStrictPasswordRegex.test(value)) {
             return Promise.resolve();
         }
-        return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
+
+        return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter.'));
     };
     const onChange = (checked: boolean) => {
         setIsRefferal(checked)
@@ -125,7 +133,7 @@ const SignUp = () => {
                                     phone: '',
                                     password: '',
                                     confirmPassword: '',
-                                    reffCode: id ?? '',
+                                    reffCode: id ? id : 'admin',
                                     isRefferal: false,
                                 }}
                                 onFinish={onFinish}
@@ -248,33 +256,22 @@ const SignUp = () => {
                                         </Form.Item>
                                     </Col>
 
-                                    {!isRefferal &&
-                                        <Col xs={24} sm={24} md={24} lg={24}>
-                                            <Form.Item
-                                                label="Refferal Code"
-                                                name="reffCode"
-                                                rules={[{ required: true, message: 'Required field' }]}
-                                            >
-                                                <Input placeholder="Type here" rootClassName='styled-input' autoComplete='off' />
-                                            </Form.Item>
-                                        </Col>}
                                     <Col xs={24} sm={24} md={24} lg={24}>
                                         <Form.Item
-                                            label=""
-                                            name="isRefferal"
+                                            label="Refferal Code"
+                                            name="reffCode"
                                             rules={[{ required: false, message: 'Required field' }]}
                                         >
-                                            <div>
-                                                <Switch checked={isRefferal} rootClassName='refferal-switch' onChange={onChange} />
-                                                <label htmlFor="" style={{ color: "rgb(152 152 152)" }}>&nbsp; I Do'nt have Refferal code </label>
-                                            </div>
+                                            <Input placeholder="Type here" rootClassName='styled-input' autoComplete='off' />
                                         </Form.Item>
                                     </Col>
+
+                                    <br />
                                     <br />
                                     <Col xs={24} sm={24} md={24} lg={24}>
                                         <Form.Item
                                             label=""
-                                            name="isRefferal"
+                                            name="readTerms"
                                             rules={[{ required: false, message: 'Required field' }]}
                                         >
                                             <div>
@@ -282,7 +279,6 @@ const SignUp = () => {
                                             </div>
                                         </Form.Item>
                                     </Col>
-
                                 </Row>
                                 {regError && <div className="error-message-footer">
                                     {regError}
@@ -295,10 +291,10 @@ const SignUp = () => {
 
                         </div>
                         <div className='lb-docs-nav'>
-                            <p>Terms</p>
-                            <p>Privacy</p>
-                            <p>About</p>
-                            <p className='ex-w'>Contact EHB support</p>
+                            <a href="https://ehb.com.co/#/terms-and-conditions"><p>Terms</p></a>
+                            <a href="https://ehb.com.co/#/refund-policy"><p>Refund Policy</p></a>
+                            <a href="https://ehb.com.co/#/about-us"><p>About</p></a>
+                            <a href="https://ehb.com.co/#/contact-us"><p className='ex-w'>Contact EHB support</p></a>
                         </div>
                     </div>
                     :

@@ -40,7 +40,7 @@ const SideBar = () => {
     getItem(<div onClick={() => navigate('./home')}>Dashboard</div>, '1', <PieChartOutlined />),
     getItem(<div>EHB Services</div>, 'sub1', <img src={gripDotsIcon} width={15} height={15} alt="" />, [
       // getItem(<div>GoSellr</div>, '6'),
-      getItem(<div>Affiliate Program</div>, '8'),
+      getItem( <a href="https://ehb.com.co/affiliate/dashboard"><div>Affiliate Program</div></a>, '8'),
     ]),
     getItem(<div onClick={() => navigate('./home')}>Performance</div>, '5', <img src={performanceIcon} width={15} height={15} alt="" />),
     getItem(<div onClick={() => navigate('./home')}>Coming.s Companies </div>, '3', <img src={comingSoonIcon} width={15} height={15} alt="" />),
