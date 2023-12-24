@@ -84,17 +84,8 @@ const SignUp = () => {
             return Promise.reject(new Error('The two passwords do not match'));
         },
     });
-    // const validateStrongPassword = (_: any, value: any) => {
-    //     // Use a regular expression to check for a strong password (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
-    //     const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-    //     if (!value || strongPasswordRegex.test(value)) {
-    //         return Promise.resolve();
-    //     }
-    //     return Promise.reject(new Error('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'));
-    // };
+    
     const validateStrongPassword = (_: any, value: any) => {
-        // Use a regular expression to check for a less strict password (minimum 8 characters with at least one uppercase letter)
         const lessStrictPasswordRegex = /^(?=.*[A-Z]).{8,}$/;
 
         if (!value || lessStrictPasswordRegex.test(value)) {

@@ -30,7 +30,7 @@ const SignIn = () => {
         document.cookie = "user_id=; domain=.ehb.com.co; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "ref=; domain=.ehb.com.co; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "user_name=; domain=.ehb.com.co; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
+        document.cookie = "phoneNumber=; domain=.ehb.com.co; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
         setRegError('')
         setGetCurrentEmail(values.email)
@@ -40,11 +40,11 @@ const SignIn = () => {
         };
         try {
             const response: any = await postLoginUser({ payload }).unwrap();
-            const jwtToken = response.token; // Assuming you can access the token from the response
+            const jwtToken = response.token;
             localStorage.setItem('token', jwtToken);
             document.cookie = `me=${jwtToken}; domain=.ehb.com.co; path=/;`;
             if (currentRoute === '/sign-in/affilate') {
-                // window.open('https://ehb.com.co/affiliate', '_blank');
+                
                 window.location.href = 'https://ehb.com.co/affiliate';
             } else {
                 navigate('/home');
