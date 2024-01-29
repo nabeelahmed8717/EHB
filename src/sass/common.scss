@@ -49,7 +49,6 @@ input {
 .btn-cancel {
   background-color: $cancle-button-background;
   color: #515151;
-
 }
 
 .dark-brown-color {
@@ -357,7 +356,6 @@ input {
 .common-head-wrapper-title {
   h3 {
     font-size: 20px;
-
   }
 }
 
@@ -407,7 +405,7 @@ input {
 }
 
 .btn-yellow {
-  background-color: #FAB529;
+  background-color: #fab529;
 }
 
 // ####### Common Border Class #######
@@ -443,7 +441,6 @@ input {
   position: relative;
 }
 
-
 .ant-table-wrapper {
   clear: both;
   max-width: 100%;
@@ -451,19 +448,31 @@ input {
   border-radius: 10px;
 }
 
-:where(.css-dev-only-do-not-override-1aocciv).ant-table-wrapper .ant-table-thead>tr>th,
-:where(.css-dev-only-do-not-override-1aocciv).ant-table-wrapper .ant-table-thead>tr>td {
+:where(.css-dev-only-do-not-override-1aocciv).ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > th,
+:where(.css-dev-only-do-not-override-1aocciv).ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > td {
   position: relative;
   color: rgba(0, 0, 0, 0.88);
   font-weight: 600;
   text-align: start;
-  background: #F9FBFC;
+  background: #f9fbfc;
   border-bottom: 1px solid #f0f0f0;
   transition: background 0.2s ease;
 }
 
-:where(.css-dev-only-do-not-override-1aocciv).ant-table-wrapper .ant-table-thead>tr>th,
-:where(.css-dev-only-do-not-override-1aocciv).ant-table-wrapper .ant-table-tbody>tr>td {
+:where(.css-dev-only-do-not-override-1aocciv).ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > th,
+:where(.css-dev-only-do-not-override-1aocciv).ant-table-wrapper
+  .ant-table-tbody
+  > tr
+  > td {
   padding: 12px 16px;
 }
 
@@ -472,7 +481,6 @@ input {
     background-color: rgb(114, 114, 114) !important;
   }
 }
-
 
 // OTHERS \\
 .badges-dept {
@@ -506,9 +514,6 @@ input {
   }
 }
 
-
-
-
 .dark-card {
   background-color: #131928;
   // border: 1px solid #282828;
@@ -518,9 +523,9 @@ input {
   color: #fff;
 }
 
-.tex-dull{
+.tex-dull {
   color: #ffffff6b;
-} 
+}
 .head-wrapper-title {
   margin-bottom: 20px;
 
@@ -529,9 +534,8 @@ input {
   }
 }
 
-
-
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+}
 
 .head-ins {
   .service-quality {
@@ -545,7 +549,6 @@ input {
 .b--white-icon {
   filter: invert(1);
 }
-
 
 .badge-common {
   background-color: #27ae60;
@@ -586,59 +589,58 @@ input {
   text-overflow: ellipsis;
 }
 
-.common-btn{
+.common-btn {
   background-color: #2582ff;
   color: #fff;
   border: none;
   padding: 8px 20px;
   height: auto;
   border-radius: 11px;
-  &:hover{
+  &:hover {
     background-color: #1863c5;
     color: #ffffff;
   }
 }
-.common-btn-tr{
+.common-btn-tr {
   background-color: #2582ff26;
-    color: #2582ff;
+  color: #2582ff;
   border: none;
   padding: 8px 20px;
   height: auto;
   border-radius: 11px;
   transition: 0.3s;
-  &:hover{
+  &:hover {
     background-color: #2582ff;
     color: #ffffff;
   }
 }
 
-.common-btn-dull{
-  background-color:  #1863c5;
+.common-btn-dull {
+  background-color: #1863c5;
   color: #fff;
   border: none;
   padding: 8px 20px;
   height: auto;
   border-radius: 11px;
-  &:hover{
+  &:hover {
     background-color: #2582ff;
     color: #ffffff;
   }
 }
 
-.scroll-s{
-
-&::-webkit-scrollbar-track {
-  background: #000000; 
-  border-radius: 20px;
-}
-&::-webkit-scrollbar-thumb {
-  background: #1653a2; 
-  border-radius: 20px;
-}
-&::-webkit-scrollbar-thumb:hover {
-  background: #2582FF; 
-  border-radius: 20px;
-}
+.scroll-s {
+  &::-webkit-scrollbar-track {
+    background: #000000;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #1653a2;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #2582ff;
+    border-radius: 20px;
+  }
 }
 
 .global-form {
@@ -649,7 +651,7 @@ input {
   }
 
   .form-button {
-    background-color: #2F87EF;
+    background-color: #2f87ef;
     border-radius: 30px;
     border: none;
     color: #fff;
@@ -673,20 +675,24 @@ input {
     background-color: #e7e7e7 !important;
   }
 
-
-
-  .ant-form-item .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  .ant-form-item
+    .ant-form-item-label
+    > label.ant-form-item-required:not(
+      .ant-form-item-required-mark-optional
+    )::before {
     display: none;
   }
 
   .ant-form-item .ant-form-item-label {
     padding-bottom: 2px !important;
     font-weight: 500;
-    color: #96979E !important;
+    color: #96979e !important;
   }
 
-  :where(.css-dev-only-do-not-override-1t8xugw).ant-form-item .ant-form-item-label>label {
-    color: #96979E !important;
+  :where(.css-dev-only-do-not-override-1t8xugw).ant-form-item
+    .ant-form-item-label
+    > label {
+    color: #96979e !important;
   }
 
   .ant-form-item {

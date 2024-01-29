@@ -16,6 +16,8 @@ import wrapperWall from "../../assets/wrapper/main-wall.png"
 import wrapperWallRes from "../../assets/wrapper/main-wall-res.png"
 import noData from "../../assets/images/no-data.png"
 import affilateIcon from "../../assets/icons/affilate.png"
+import franchiseIcon from "../../assets/images/franchise.png"
+import underConstruction from "../../assets/images/under-construction.png"
 import TimerComponent from './timerRefPros/timerRefPros'
 
 
@@ -30,6 +32,7 @@ const ehbDapartmentsData = [
     icon: pssIcon,
     label: "PSS",
     disp: "Personal Security Service",
+    link: "https://pss-ehb.vercel.app",
   },
   {
     icon: jpsIcon,
@@ -100,6 +103,9 @@ const Dashboard = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isViewRefillStats, setIsViewRefillStats] = useState(false);
 
+  const [isDemoIndicator, setIsDemoIndicator] = useState(false);
+  const [isDemoIndicatorContent, setIsDemoIndicatorContent] = useState<any>();
+
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
     function handleViewportChange(event: any) {
@@ -117,14 +123,22 @@ const Dashboard = () => {
     <div className="dashboard-main-wrapper tex-w" >
 
 
-      <div className='affilate-lg'>
-        <img src={affilateIcon} alt="" className='img' />
-        <div className='ct-lg'>
-          <p>Login to EHB Affiliate</p>
-          <a href="https://ehb.com.co/affiliate/dashboard">
-            <Button className='common-btn'>Login now</Button>
-          </a>
-
+      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+        <div className='affilate-lg'>
+          <img src={affilateIcon} alt="" className='img' />
+          <div className='ct-lg'>
+            <p>Login to EHB Affiliate</p>
+            <a href="https://ehb.com.co/affiliate/dashboard">
+              <Button className='common-btn'>Login now</Button>
+            </a>
+          </div>
+        </div>
+        <div className='affilate-lg'>
+          <img src={franchiseIcon} alt="" className='img' />
+          <div className='ct-lg'>
+            <p>Book a Franchise</p>
+              <Button className='common-btn'>Book Now</Button>
+          </div>
         </div>
       </div>
 
@@ -196,7 +210,7 @@ const Dashboard = () => {
                       <img src={item.icon} width={40} height={40} alt="" />
                       <h4>{item.label} <span>{item.disp}</span></h4>
                     </div>
-                    <Button className='common-btn-tr'>Coming Soon</Button>
+                    <Button className='common-btn-tr' onClick={() => { setIsDemoIndicator(true); setIsDemoIndicatorContent(item) }} >Coming Soon</Button>
                   </div>
                 </div>
               ))
@@ -209,7 +223,7 @@ const Dashboard = () => {
               <img src={mlmWorld} alt="" />
               <div className="contents">
                 <h3>EHB Auto Plan</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum iusto a magni, possimus nisi explicabo, voluptate esse accusantium sint dicta numquam repudiandae delectus quibusdam similique.</p>
+                <p>Welcome to our Affiliate Program - where collaboration meets success! Join us to access premium products, generous commissions, and powerful tools. Whether you're a seasoned marketer or just starting, turn your influence into income. Join now and let's grow together!</p>
               </div>
             </div>
             <Button className="common-btn" href='https://ehb.com.co/affiliate/dashboard'>Join Now</Button>
@@ -297,6 +311,34 @@ const Dashboard = () => {
               ))
             }
           </Row>
+        </div>
+      </Modal>
+
+
+      <Modal open={isDemoIndicator} rootClassName='info-un-c-modal' footer={false} onCancel={() => setIsDemoIndicator(false)}>
+        <div className='info-un-c tex-w'>
+          {
+            isDemoIndicatorContent?.link ?
+              <>
+                <img src={underConstruction} className='op-unds' width={200} alt="" />
+                <h3>Information</h3><br />
+                <p style={{ marginBottom: "10px", position: "relative" }}><strong>{isDemoIndicatorContent?.label}</strong> <span>{isDemoIndicatorContent?.disp}</span> </p>
+                <p style={{ position: "relative" }} >This is a demonstration of our under development plan</p>
+                <br />
+              </>
+              :
+              <p style={{ color: "red" }}>Currently demonstration link is not available</p>
+          }
+
+          {isDemoIndicatorContent?.link ?
+            <a href={isDemoIndicatorContent?.link} target='_blank'>
+              <Button className='common-btn'>Visit Demo Site</Button>
+            </a>
+            :
+            null
+          }
+
+
         </div>
       </Modal>
 

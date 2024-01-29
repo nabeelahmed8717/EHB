@@ -28,6 +28,7 @@ const Loadable = (Component: LazyExoticComponent<FC>) => (props: any) =>
 );
 const MainLayout = Loadable(lazy(() => import("./layout/mainLayout")));
 const LandingPage = Loadable(lazy(() => import("./pages/dashboard")));
+const Franchises = Loadable(lazy(() => import("./pages/franchises")));
 const SignIn = Loadable(lazy(() => import("./pages/signIn")));
 const SignUp = Loadable(lazy(() => import("./pages/signUp")));
 const RestPassword = Loadable(lazy(() => import("./pages/resetPassword")));
@@ -76,5 +77,9 @@ export const routes: any = [
         element: <PrivateRoute element={<LandingPage />} path="home" />,
       },
     ],
+  },
+  {
+    path: "franchises",
+    element: <PrivateRoute element={<Franchises />} path="franchises" />,
   },
 ];

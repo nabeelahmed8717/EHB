@@ -381,3 +381,38 @@
       }
    }
 }
+
+.info-un-c{
+   position: relative;
+.op-unds{
+   position: absolute;
+   right: -25px;
+   opacity: 0.1;
+}
+}
+
+.info-un-c-modal {
+   overflow: hidden;
+   .ant-modal-content {
+     background-color: #131928;
+     color: #ffffffbf;
+   }
+   .ant-modal-title {
+     background-color: #131928;
+     color: #fff;
+   }
+   .ant-modal-close-x {
+     filter: invert(1) brightness(1);
+   }
+   .description {
+     ul {
+       list-style-type: disc;
+       margin-left: 20px;
+       padding-left: 20px;
+ 
+       li {
+         margin-bottom: 8px;
+       }
+     }
+   }
+ }

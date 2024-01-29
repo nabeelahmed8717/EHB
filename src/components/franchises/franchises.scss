@@ -1,0 +1,241 @@
+.main-wrapper-franchise {
+  background-color: #050b1b;
+  min-height: 100vh;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  .main-map-wrapper-one {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40%;
+  }
+  .main-map-wrapper-two {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 40%;
+  }
+  // color: #fff;
+  .m-w-inset {
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 50px;
+    color: #ffffff;
+    .my-franchise {
+      background-color: #131928;
+      width: 100%;
+      height: 80vh;
+      border-radius: 20px;
+      padding: 20px;
+      h3 {
+        font-size: 18px;
+      }
+    }
+
+    .no-data-ff {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #1c1f364d;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 11vh;
+      img {
+      }
+      h3 {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+      button {
+        background-color: #726af3;
+        margin-top: 20px;
+        border-radius: 20px;
+        font-weight: 600 !important;
+        color: #ffffff;
+        border: 0;
+      }
+    }
+
+    .inset-18 {
+      .adver-wrapper {
+        background-color: #131928;
+        color: #fff;
+        width: 60%;
+        border-radius: 20px;
+        /* color: #000000; */
+        padding: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        h2 {
+          font-size: 18px;
+        }
+        p {
+          color: #ffffffd4;
+        }
+      }
+
+      .wrapper-booked-franchise {
+        margin-top: 40px;
+        .wrapper-franchise-card {
+          margin-top: 30px;
+          .franchise-card {
+            background-color: #0c1423;
+            width: 100%;
+            border-radius: 20px;
+            padding: 20px;
+            transition: 0.3s;
+            &:hover {
+              transform: translate(0px, -5px);
+            }
+            .franchise-tags {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              flex-wrap: wrap;
+              margin-top: 20px;
+              .tag-s {
+                background-color: rgb(180 180 180 / 38%);
+                font-size: 11px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 20px;
+              }
+              .tag-sub {
+                background-color: #27ae60;
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .m-w-inset-book {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    .wrap-set-form{
+      background-color: #0d1221;
+      width: 60%;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      padding-top: 30px;
+    }
+  }
+}
+.bookings-form{
+  .ant-form-item .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    display: none;
+  }
+
+  .ant-form-item .ant-form-item-label {
+    padding-bottom: 2px !important;
+    font-weight: 600;
+
+    label {
+      color: #999 !important;
+    }
+  }
+
+  .anticon svg {
+    display: inline-block;
+    color: aliceblue;
+  }
+
+  .end-navigator {
+    color: #727272;
+    width: auto;
+
+    span {
+      color: #000;
+      font-weight: 600;
+
+      &:hover {
+        color: #2a56b8;
+      }
+    }
+  }
+
+  .styled-input {
+    width: 100%;
+    height: 45px;
+    background-color: #131928;
+    border: 1px solid transparent;
+    color: #fff;
+  
+    &::placeholder {
+      color: #444451 !important;
+    }
+  }
+  
+  .selector-c {
+    width: 100%;
+    background-color: #131928 !important;
+    border: 1px solid transparent !important;
+    color: #fff;
+    border-radius: 5px;
+  
+    .ant-select-dropdown {
+      background-color: #131928 !important;
+  
+    }
+  
+    .ant-select-item-option-content {
+      color: #cbcbcb !important;
+    }
+  
+    .ant-select-item-option-active {
+      background-color: #050b1b !important;
+    }
+  
+    .ant-select-item-option-selected {
+      background-color: #050b1b !important;
+    }
+  }
+  
+  .ant-select-selector {
+    width: 100%;
+    height: 45px;
+    background-color: #131928 !important;
+    border: 1px solid transparent !important;
+    color: #fff !important;
+
+    &::placeholder {}
+
+    .ant-select-selection-placeholder {
+      color: #444451 !important;
+    }
+
+    .ant-select-selection-item {
+      color: #fff !important;
+    }
+
+  }
+
+  .selected-f-city{
+    background-color: #131928;
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    width: 99%;
+    margin-bottom: 20px;
+    .flex-scf{
+      display: flex;
+    }
+    .label-d{
+      width: 100px;
+    }
+  }
+}
