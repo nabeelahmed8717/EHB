@@ -1,4 +1,4 @@
-import { Alert, Button, Col, Form, Input, Modal, Row, message } from 'antd'
+import { Button, Col, Form, Input, Modal, Row, message } from 'antd'
 import React, { useState } from 'react'
 import { useResetPasswordMutation } from '../../../../store/apis/user';
 import '../../authentication.scss'

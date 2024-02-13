@@ -20,8 +20,6 @@ const SignIn = () => {
     const currentRoute = location.pathname;
 
     const onFinish = async (values: any) => {
-
-
         localStorage.clear();
         document.cookie = `me=; domain=.ehb.com.co; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         document.cookie = "last_name=; domain=.ehb.com.co; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

@@ -19,6 +19,7 @@ import affilateIcon from "../../assets/icons/affilate.png"
 import franchiseIcon from "../../assets/images/franchise.png"
 import underConstruction from "../../assets/images/under-construction.png"
 import TimerComponent from './timerRefPros/timerRefPros'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -100,6 +101,7 @@ const recentJoinedUserData = [
 ]
 
 const Dashboard = () => {
+  const navigate = useNavigate()
   const [isMobile, setIsMobile] = useState(false);
   const [isViewRefillStats, setIsViewRefillStats] = useState(false);
 
@@ -137,7 +139,7 @@ const Dashboard = () => {
           <img src={franchiseIcon} alt="" className='img' />
           <div className='ct-lg'>
             <p>Book a Franchise</p>
-              <Button className='common-btn'>Book Now</Button>
+              <Button className='common-btn' onClick={()=> navigate('/franchises')}>Book Now</Button>
           </div>
         </div>
       </div>
