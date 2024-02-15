@@ -35,6 +35,8 @@ const SignIn = Loadable(lazy(() => import("./pages/signIn")));
 const SignUp = Loadable(lazy(() => import("./pages/signUp")));
 const RestPassword = Loadable(lazy(() => import("./pages/resetPassword")));
 
+const Admin = Loadable(lazy(() => import("./pages/admin")));
+
 const isTokenAvailable = () => {
   const token = localStorage.getItem('token');
   return token !== null;
@@ -79,6 +81,10 @@ export const routes: any = [
         element: <PrivateRoute element={<LandingPage />} path="home" />,
       },
     ],
+  },
+  {
+    path: "admin-portal",
+    element: <PrivateRoute element={<Admin />} path="admin-portal" />,
   },
   {
     path: "franchises",

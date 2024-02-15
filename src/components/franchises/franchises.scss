@@ -43,11 +43,62 @@
     .my-franchise {
       background-color: #131928;
       width: 100%;
-      height: 80vh;
+      height: 85vh;
       border-radius: 20px;
       padding: 20px;
       h3 {
         font-size: 18px;
+      }
+      .booked-franchise-container {
+        .head-content {
+          background-color: #050b1b;
+          width: 100%;
+          border-radius: 20px;
+          padding: 20px;
+          margin-top: 20px;
+          .b-f-content-flex {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            .b-head {
+              color: #cacaca;
+              font-size: 12px;
+            }
+          }
+        }
+        .nex-section {
+          width: 100%;
+          border-radius: 20px;
+          padding: 20px;
+          .b-f-content-flex {
+            display: flex;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            .b-head {
+              width: 130px;
+            }
+          }
+        }
+      }
+      .bottom-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .download-certificate-button {
+          background-color: rgb(24 99 197 / 17%);
+          border: 0px;
+          color: #fff;
+          width: 100%;
+          display: flex;
+          padding: 0;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          &:hover {
+            background-color: #1863c5;
+          }
+        }
       }
     }
 
@@ -98,6 +149,12 @@
 
       .wrapper-booked-franchise {
         margin-top: 40px;
+        .button-filter {
+          background-color: #726af31c;
+          border: none;
+          border-radius: 30px;
+          color: #fff;
+        }
         .wrapper-franchise-card {
           margin-top: 30px;
           .franchise-card {
@@ -383,8 +440,104 @@
   }
 }
 
-
-.inner-content-tabs{
+.inner-content-tabs {
   width: 90%;
   margin: 0 auto;
+}
+
+.filters-wrapper {
+  padding: 20px;
+  .btns-filters{
+    button {
+      padding: 0px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+  }
+  
+}
+
+.main-filters-drawer {
+  .ant-drawer-content {
+    background-color: #050b1b;
+  }
+
+  .ant-drawer-title {
+    color: #fff;
+  }
+
+  .ant-drawer-body {
+    color: #fff;
+  }
+
+  .ant-drawer-close {
+    filter: invert(1) brightness(5);
+  }
+}
+
+.ant-select-dropdown {
+  background-color: #131928 !important;
+  color: #fff;
+  .ant-select-item-option-content {
+    color: #fff;
+  }
+  .ant-select-item-option-active {
+    background-color: #050b1b !important;
+  }
+}
+.ant-select-selector {
+  width: 100%;
+  height: 45px;
+  background-color: #131928 !important;
+  border: 1px solid transparent !important;
+  color: #fff !important;
+ 
+  &::placeholder {
+  }
+
+  .ant-select-selection-placeholder {
+    color: #6f6f6f !important;
+  }
+
+  .ant-select-selection-item {
+    color: #fff !important;
+  }
+}
+.selector-c {
+  width: 100%;
+  background-color: #131928 !important;
+  border: 1px solid transparent !important;
+  color: #fff;
+  border-radius: 5px;
+
+  .ant-select-dropdown {
+    background-color: #131928 !important;
+  }
+
+  .ant-select-arrow {
+    color: #fff !important;
+  }
+
+  .ant-select-item-option-content {
+    color: #cbcbcb !important;
+  }
+
+  .ant-select-item-option-active {
+    background-color: #050b1b !important;
+  }
+
+  .ant-select-item-option-selected {
+    background-color: #050b1b !important;
+  }
+}
+.styled-input {
+  width: 100%;
+  height: 45px;
+  background-color: #131928;
+  border: 1px solid transparent;
+  color: #fff;
+
+  &::placeholder {
+    color: #444451 !important;
+  }
 }
